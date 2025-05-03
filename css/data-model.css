@@ -1,0 +1,95 @@
+/**
+ * Music Besties Planning App
+ * Data Model view styles
+ */
+
+/* Data structure containers */
+.data-structure {
+  margin-bottom: 30px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.data-structure h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.data-structure pre {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Diagrams */
+.diagram {
+  margin: 20px 0;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.diagram pre {
+  font-family: monospace;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Status indicators */
+.status-indicator {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.status-completed {
+  color: #27ae60;
+}
+
+.status-in-progress {
+  color: #f39c12;
+}
+
+.status-not-started {
+  color: #e74c3c;
+}
+
+/* Developer notes */
+.dev-notes {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.dev-notes textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.dev-notes-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dev-notes-actions button {
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dev-notes-actions button:hover {
+  background-color: #2980b9;
+}

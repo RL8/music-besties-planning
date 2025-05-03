@@ -1,0 +1,217 @@
+<div class="content-section">
+  <h2>Data Model</h2>
+  <p>The core data structures that power the Music Besties app.</p>
+  
+  <div style="margin: 30px 0;">
+    <!-- Core Data Structures -->
+    <div style="margin-bottom: 40px;">
+      <h3>Core Data Structures</h3>
+      
+      <!-- Era Data Structure -->
+      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
+        <h4>Era</h4>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Represents a music era (e.g., an album era)</p>
+        
+        <pre style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">
+{
+  id: String,          // Unique identifier
+  name: String,        // Display name
+  emoji: String,       // Associated emoji
+  artist: String,      // Artist name
+  year: Number,        // Release year
+  songs: [             // Array of songs in this era
+    {
+      id: String,      // Song identifier
+      name: String,    // Song name
+      duration: String // Song duration
+    }
+  ]
+}</pre>
+        <p style="font-size: 14px; margin-top: 10px;">
+          <strong>Storage:</strong> Defined in data.js as ERA_NAMES, ERA_EMOJIS, and ERA_SONGS
+        </p>
+      </div>
+      
+      <!-- User Rankings Data Structure -->
+      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
+        <h4>UserRankings</h4>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Stores a user's rankings for different categories</p>
+        
+        <pre style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">
+{
+  eras: [               // Ranked eras
+    {
+      id: String,       // Era identifier
+      rank: Number      // User-assigned rank (1, 2, 3, etc.)
+    }
+  ],
+  albums: [             // Ranked albums
+    {
+      id: String,       // Album identifier
+      rank: Number      // User-assigned rank
+    }
+  ],
+  songs: {              // Ranked songs by era
+    [eraId]: [          // Era identifier as key
+      {
+        id: String,     // Song identifier
+        rank: Number    // User-assigned rank
+      }
+    ]
+  }
+}</pre>
+        <p style="font-size: 14px; margin-top: 10px;">
+          <strong>Storage:</strong> Persisted in localStorage as 'userRankings'
+        </p>
+      </div>
+      
+      <!-- User Reviews Data Structure -->
+      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
+        <h4>UserReviews</h4>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Stores a user's reviews and ratings</p>
+        
+        <pre style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">
+{
+  eras: {               // Reviews for eras
+    [eraId]: {          // Era identifier as key
+      rating: Number,   // Star rating (1-5)
+      review: String    // Text review
+    }
+  },
+  albums: {             // Reviews for albums
+    [albumId]: {        // Album identifier as key
+      rating: Number,   // Star rating (1-5)
+      review: String    // Text review
+    }
+  },
+  songs: {              // Reviews for songs
+    [songId]: {         // Song identifier as key
+      rating: Number,   // Star rating (1-5)
+      review: String    // Text review
+    }
+  }
+}</pre>
+        <p style="font-size: 14px; margin-top: 10px;">
+          <strong>Storage:</strong> Persisted in localStorage as 'userReviews'
+        </p>
+      </div>
+    </div>
+    
+    <!-- Future Data Structures -->
+    <div style="margin-bottom: 40px;">
+      <h3>Future Data Structures <span class="status-indicator status-not-started">[🔴 Not Started]</span></h3>
+      
+      <!-- User Profile Data Structure -->
+      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
+        <h4>UserProfile</h4>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">User account information and preferences</p>
+        
+        <pre style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">
+{
+  id: String,           // Unique user identifier
+  username: String,     // Display name
+  joinDate: Date,       // When the user joined
+  preferences: {        // User preferences
+    theme: String,      // UI theme preference
+    privacy: {          // Privacy settings
+      shareRankings: Boolean,
+      shareReviews: Boolean
+    }
+  },
+  stats: {              // User statistics
+    totalRankings: Number,
+    totalReviews: Number
+  }
+}</pre>
+        <p style="font-size: 14px; margin-top: 10px;">
+          <strong>Storage:</strong> Will be persisted in localStorage and/or backend database
+        </p>
+      </div>
+      
+      <!-- Friends Data Structure -->
+      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
+        <h4>Friends</h4>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">User's connections with other users</p>
+        
+        <pre style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">
+{
+  connections: [        // List of connected users
+    {
+      userId: String,   // Friend's user ID
+      username: String, // Friend's display name
+      status: String,   // Connection status (e.g., "active", "pending")
+      addedDate: Date   // When the connection was established
+    }
+  ],
+  requests: [           // Pending friend requests
+    {
+      userId: String,   // Requester's user ID
+      username: String, // Requester's display name
+      requestDate: Date // When the request was made
+    }
+  ]
+}</pre>
+        <p style="font-size: 14px; margin-top: 10px;">
+          <strong>Storage:</strong> Will be persisted in backend database
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Data Flow Diagram -->
+  <h3>Data Flow</h3>
+  <div style="margin: 20px 0; background-color: #f8f9fa; border-radius: 5px; padding: 20px; overflow-x: auto;">
+    <pre style="font-family: monospace; line-height: 1.5; font-size: 14px;">
++----------------+     +----------------+     +----------------+
+|                |     |                |     |                |
+|  data.js       |---->|  Components    |---->|  localStorage  |
+|  (Static Data) |     |  (Vue.js)      |     |  (User Data)   |
+|                |     |                |     |                |
++----------------+     +----------------+     +----------------+
+                              ^   |
+                              |   |
+                              |   v
+                       +----------------+
+                       |                |
+                       |  User          |
+                       |  Interaction   |
+                       |                |
+                       +----------------+
+    </pre>
+  </div>
+  
+  <!-- Entity Relationship Diagram -->
+  <h3>Entity Relationships</h3>
+  <div style="margin: 20px 0; background-color: #f8f9fa; border-radius: 5px; padding: 20px; overflow-x: auto;">
+    <pre style="font-family: monospace; line-height: 1.5; font-size: 14px;">
++-------------+     +-------------+     +-------------+
+| Artist      |<--->| Era         |<--->| Song        |
++-------------+     +-------------+     +-------------+
+      ^                   ^                   ^
+      |                   |                   |
+      v                   v                   v
++-------------+     +-------------+     +-------------+
+| User        |---->| Ranking     |     | Review      |
++-------------+     +-------------+     +-------------+
+      ^                                       ^
+      |                                       |
+      v                                       |
++-------------+                               |
+| Friend      |                               |
++-------------+                               |
+                                              v
+                                      +-------------+
+                                      | Rating      |
+                                      +-------------+
+    </pre>
+  </div>
+  
+  <!-- Developer Notes -->
+  <div class="dev-notes" style="margin-top: 30px;">
+    <h3>Developer Notes</h3>
+    <textarea id="note-data-model" placeholder="Add your developer notes about the data model here..." style="width: 100%; min-height: 100px;"></textarea>
+    <div class="dev-notes-actions">
+      <button onclick="Storage.saveNote('data-model', document.getElementById('note-data-model').value); alert('Note saved!');">Save Note</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,247 @@
+<div class="content-section">
+  <h2>Wireframes (Alternative View)</h2>
+  <p>Direct access to wireframe details without the overview grid.</p>
+  
+  <!-- Wireframe Navigation -->
+  <div class="wireframe-quick-nav">
+    <div class="wireframe-quick-nav-title">Quick Navigation:</div>
+    <div class="wireframe-quick-nav-items">
+      <span class="wireframe-quick-nav-item active" data-index="0">Dashboard</span>
+      <span class="wireframe-quick-nav-item" data-index="1">Edit Rankings</span>
+      <span class="wireframe-quick-nav-item" data-index="2">Sidebar</span>
+      <span class="wireframe-quick-nav-item" data-index="3">Comparison</span>
+    </div>
+  </div>
+  
+  <!-- Pagination Controls -->
+  <div class="wireframe-pagination">
+    <button class="wireframe-nav-btn prev">Previous</button>
+    <span class="pagination-info">Wireframe 1 of 4</span>
+    <button class="wireframe-nav-btn next">Next</button>
+  </div>
+  
+  <!-- Wireframe Detail Views -->
+  <div class="wireframe-details">
+    <!-- Dashboard Detail -->
+    <div class="wireframe-detail" id="dashboard-detail" style="display: block;">
+      <div class="wireframe-content">
+        <h3>Dashboard</h3>
+        <div class="wireframe-description">
+          <p>The main view showing all rankings for eras, albums, and songs.</p>
+          <p><strong>Status:</strong> <span class="status-indicator status-completed">[🟢 Completed]</span></p>
+        </div>
+        
+        <div class="wireframe-preview">
+          <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;">
++---------------------+
+| Music Besties       |
++---------------------+
+|                     |
+| [Eras] [Albums] [Songs] 
+|                     |
+| +-------+ +-------+ |
+| | Red ❤️ | |1989 💙| |
+| | #1    | | #3    | |
+| +-------+ +-------+ |
+|                     |
+| +-------+ +-------+ |
+| |Fearless| |Lover 💕|
+| | #2  💛 | |Unranked|
+| +-------+ +-------+ |
+|                     |
++---------------------+
+          </pre>
+        </div>
+        
+        <span class="details-toggle">Show Component Details</span>
+        <div class="component-details" style="display: none;">
+          <h4>Components:</h4>
+          <ul>
+            <li><strong>Tab Navigation:</strong> Allows switching between different ranking categories</li>
+            <li><strong>Ranking Cards:</strong> Shows each item with its rank (if ranked)</li>
+            <li><strong>Card Actions:</strong> Click to view details in sidebar</li>
+          </ul>
+          
+          <h4>Interactions:</h4>
+          <ul>
+            <li>Click on a card to open the sidebar with details</li>
+            <li>Click on tabs to switch between different categories</li>
+            <li>"Edit Rankings" button opens the ranking interface</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Edit Rankings Detail -->
+    <div class="wireframe-detail" id="edit-rankings-detail" style="display: none;">
+      <div class="wireframe-content">
+        <h3>Edit Rankings</h3>
+        <div class="wireframe-description">
+          <p>Interface for creating and editing rankings for songs, albums, or eras.</p>
+          <p><strong>Status:</strong> <span class="status-indicator status-in-progress">[🟡 In Progress]</span></p>
+        </div>
+        
+        <div class="wireframe-preview">
+          <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;">
++---------------------+
+| Edit Rankings       |
++---------------------+
+|                     |
+| [Eras] [Albums] [Songs] 
+|                     |
+| Ranked:             |
+| +---------------+   |
+| | 1. Fearless 💛 ✕ | |
+| +---------------+   |
+| | 2. Red ❤️     ✕ | |
+| +---------------+   |
+| | 3. 1989 💙    ✕ | |
+| +---------------+   |
+|                     |
+| Unranked:           |
+| +---------------+   |
+| | Lover 💕      + | |
+| +---------------+   |
+|                     |
+| [Cancel]  [Save]    |
++---------------------+
+          </pre>
+        </div>
+        
+        <span class="details-toggle">Show Component Details</span>
+        <div class="component-details" style="display: none;">
+          <h4>Components:</h4>
+          <ul>
+            <li><strong>Tab Navigation:</strong> Switch between eras, albums, and songs</li>
+            <li><strong>Ranked Section:</strong> Shows items that have been ranked</li>
+            <li><strong>Unranked Section:</strong> Shows items that haven't been ranked yet</li>
+            <li><strong>Item Controls:</strong> Remove from rankings (✕) or add to rankings (+)</li>
+          </ul>
+          
+          <h4>Interactions:</h4>
+          <ul>
+            <li>Click ✕ to remove an item from rankings</li>
+            <li>Click + to add an item to the end of rankings</li>
+            <li>Drag and drop to reorder ranked items</li>
+            <li>Click Save to save changes, Cancel to discard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sidebar Detail -->
+    <div class="wireframe-detail" id="sidebar-detail" style="display: none;">
+      <div class="wireframe-content">
+        <h3>Sidebar Panel</h3>
+        <div class="wireframe-description">
+          <p>Detailed view for a specific era, album, or song with rankings and reviews.</p>
+          <p><strong>Status:</strong> <span class="status-indicator status-completed">[🟢 Completed]</span></p>
+        </div>
+        
+        <div class="wireframe-preview">
+          <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;">
++---------------------+
+|  Red ❤️        [X] |
++---------------------+
+|                     |
+| Rank: #1            |
+|                     |
+| [Rank][Review]      |
+|                     |
+| Songs:              |
+| 1. All Too Well     |
+| 2. State of Grace   |
+| 3. Red              |
+|                     |
+| Your Review:        |
+| ★★★★☆              |
+|                     |
+| "This album is      |
+|  amazing..."        |
+|                     |
+| [Edit] [Share]      |
++---------------------+
+          </pre>
+        </div>
+        
+        <span class="details-toggle">Show Component Details</span>
+        <div class="component-details" style="display: none;">
+          <h4>Components:</h4>
+          <ul>
+            <li><strong>Header:</strong> Shows the item name and close button</li>
+            <li><strong>Tabs:</strong> Switch between ranking and review views</li>
+            <li><strong>Content Area:</strong> Shows rankings or review content</li>
+            <li><strong>Action Buttons:</strong> Edit or share the item</li>
+          </ul>
+          
+          <h4>Interactions:</h4>
+          <ul>
+            <li>Click X to close the sidebar</li>
+            <li>Click tabs to switch between ranking and review views</li>
+            <li>Click Edit to modify rankings or review</li>
+            <li>Click Share to share with friends (future feature)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Comparison Detail -->
+    <div class="wireframe-detail" id="comparison-detail" style="display: none;">
+      <div class="wireframe-content">
+        <h3>Comparison View</h3>
+        <div class="wireframe-description">
+          <p>Side-by-side comparison of rankings with friends.</p>
+          <p><strong>Status:</strong> <span class="status-indicator status-not-started">[🔴 Not Started]</span></p>
+        </div>
+        
+        <div class="wireframe-preview">
+          <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto;">
++---------------------+
+| Compare Rankings    |
++---------------------+
+|                     |
+| [Eras] [Albums] [Songs] 
+|                     |
+| You      | Friend   |
+| ---------|---------- 
+| 1.Red ❤️ | 1.1989 💙 |
+| 2.Fearless| 2.Red ❤️ |
+| 3.1989 💙| 3.Lover 💕|
+|          |          |
+| Matches: 0/3        |
+|                     |
+| [Share Results]     |
++---------------------+
+          </pre>
+        </div>
+        
+        <span class="details-toggle">Show Component Details</span>
+        <div class="component-details" style="display: none;">
+          <h4>Components:</h4>
+          <ul>
+            <li><strong>Tab Navigation:</strong> Switch between eras, albums, and songs</li>
+            <li><strong>Comparison Columns:</strong> Your rankings vs. friend's rankings</li>
+            <li><strong>Match Summary:</strong> Shows how many rankings match</li>
+            <li><strong>Share Button:</strong> Share comparison results</li>
+          </ul>
+          
+          <h4>Interactions:</h4>
+          <ul>
+            <li>Click on tabs to switch between different categories</li>
+            <li>Select different friends to compare with</li>
+            <li>Click Share Results to share the comparison</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Developer Notes -->
+  <div class="dev-notes" style="margin-top: 30px;">
+    <h3>Developer Notes</h3>
+    <textarea id="note-wireframes-alt" placeholder="Add your developer notes about the wireframes here..." style="width: 100%; min-height: 100px;"></textarea>
+    <div class="dev-notes-actions">
+      <button onclick="Storage.saveNote('wireframes-alt', document.getElementById('note-wireframes-alt').value); alert('Note saved!');">Save Note</button>
+    </div>
+  </div>
+</div>

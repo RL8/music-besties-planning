@@ -1,0 +1,139 @@
+/**
+ * Music Besties Planning App
+ * Alternative Wireframes view styles
+ */
+
+/* Quick Navigation */
+.wireframe-quick-nav {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.wireframe-quick-nav-title {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.wireframe-quick-nav-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.wireframe-quick-nav-item {
+  padding: 5px 10px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wireframe-quick-nav-item:hover {
+  background-color: #dee2e6;
+}
+
+.wireframe-quick-nav-item.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Pagination Controls */
+.wireframe-alt-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 15px;
+}
+
+.wireframe-nav-btn {
+  padding: 8px 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wireframe-nav-btn:hover {
+  background-color: #e9ecef;
+}
+
+.pagination-info {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+/* Wireframe Content */
+.wireframes-alt-container {
+  margin: 20px 0;
+}
+
+.wireframe-alt-content .wireframe-detail {
+  margin: 0;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+/* Component Details */
+.details-toggle {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.component-details {
+  display: none;
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+/* Developer Notes */
+.dev-notes {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.dev-notes textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.dev-notes-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dev-notes-actions button {
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dev-notes-actions button:hover {
+  background-color: #2980b9;
+}

@@ -1,0 +1,292 @@
+<div class="content-section">
+  <h2>Component Library</h2>
+  <p>Reusable Vue components that make up the Music Besties app interface.</p>
+  
+  <div style="margin: 30px 0;">
+    <!-- UI Components -->
+    <div style="margin-bottom: 40px;">
+      <h3>Core UI Components</h3>
+      
+      <!-- Dashboard Card Component -->
+      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h4>DashboardCard.vue</h4>
+          <span class="status-indicator status-completed">[🟢 Completed]</span>
+        </div>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Displays a card for an era or album on the dashboard</p>
+        
+        <div style="display: flex; gap: 20px;">
+          <div style="flex: 1;">
+            <h5>Preview</h5>
+            <div style="border: 1px solid #ddd; border-radius: 5px; padding: 15px; background-color: white; position: relative; margin-top: 10px;">
+              <div style="position: absolute; top: 5px; left: 5px; background-color: #3498db; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px;">1</div>
+              <div style="text-align: center; padding: 10px 0;">
+                <div style="font-size: 18px; margin-bottom: 5px;">Fearless 💛</div>
+                <div style="color: #666; font-size: 12px;">Taylor Swift</div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="flex: 2;">
+            <h5>Props</h5>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
+              <thead>
+                <tr style="background-color: #f1f1f1;">
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Name</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Type</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">item</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Object</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">The era or album data</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">rank</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Number</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">The ranking position (1, 2, 3, etc.)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">tabId</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">String</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Identifier for the tab/category</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <h5 style="margin-top: 20px;">Events</h5>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
+              <thead>
+                <tr style="background-color: #f1f1f1;">
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Name</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Payload</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">open-sidebar</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">tabId</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Emitted when card is clicked to open sidebar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Edit Rankings Tabs Component -->
+      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h4>EditRankingsTabs.vue</h4>
+          <span class="status-indicator status-in-progress">[🟡 In Progress]</span>
+        </div>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Tab interface for editing rankings across different categories</p>
+        
+        <div style="display: flex; gap: 20px;">
+          <div style="flex: 1;">
+            <h5>Preview</h5>
+            <div style="border: 1px solid #ddd; border-radius: 5px; background-color: white; margin-top: 10px;">
+              <div style="display: flex; border-bottom: 1px solid #eee;">
+                <div style="padding: 10px 15px; border-bottom: 2px solid #3498db; color: #3498db; font-weight: bold;">Eras</div>
+                <div style="padding: 10px 15px;">Albums</div>
+                <div style="padding: 10px 15px;">Songs</div>
+              </div>
+              <div style="padding: 15px;">
+                <div style="margin-bottom: 10px; font-weight: bold;">Ranked</div>
+                <div style="border: 1px solid #eee; border-radius: 5px; margin-bottom: 15px;">
+                  <div style="padding: 8px 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; align-items: center;">
+                      <span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background-color: #3498db; color: white; border-radius: 50%; font-size: 12px; margin-right: 10px;">1</span>
+                      <span>Fearless 💛</span>
+                    </div>
+                    <span style="color: #e74c3c; cursor: pointer;">✕</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="flex: 2;">
+            <h5>Props</h5>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
+              <thead>
+                <tr style="background-color: #f1f1f1;">
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Name</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Type</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">initialTab</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">String</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">The initially selected tab</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">userRankings</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Object</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Current user rankings data</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <h5 style="margin-top: 20px;">Events</h5>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
+              <thead>
+                <tr style="background-color: #f1f1f1;">
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Name</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Payload</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">save</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Object</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Updated rankings data</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">cancel</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">None</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Cancel editing</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar Panel Component -->
+      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h4>SidebarPanel.vue</h4>
+          <span class="status-indicator status-completed">[🟢 Completed]</span>
+        </div>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Overlay panel that shows detailed information</p>
+        
+        <div style="display: flex; gap: 20px;">
+          <div style="flex: 1;">
+            <h5>Preview</h5>
+            <div style="border: 1px solid #ddd; border-radius: 5px; background-color: white; margin-top: 10px; position: relative; height: 200px; overflow: hidden;">
+              <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.3);"></div>
+              <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 70%; background-color: white; border-left: 1px solid #ddd;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; border-bottom: 1px solid #eee;">
+                  <div style="font-weight: bold;">Red ❤️</div>
+                  <div style="cursor: pointer;">✕</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="flex: 2;">
+            <h5>Props</h5>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
+              <thead>
+                <tr style="background-color: #f1f1f1;">
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Name</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Type</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">visible</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Boolean</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Whether the sidebar is visible</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">item</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Object</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">The item to display details for</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">rankings</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Array</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Rankings data for the item</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <h5 style="margin-top: 20px;">Events</h5>
+            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
+              <thead>
+                <tr style="background-color: #f1f1f1;">
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Name</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Payload</th>
+                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">close</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">None</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Close the sidebar</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">edit</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">item</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Edit the current item</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Future Components -->
+    <div style="margin-bottom: 40px;">
+      <h3>Planned Components <span class="status-indicator status-not-started">[🔴 Not Started]</span></h3>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
+        <div style="flex: 1; min-width: 250px; border: 1px solid #ddd; border-radius: 5px; padding: 15px; background-color: white;">
+          <h4>UserProfile.vue</h4>
+          <p style="font-size: 14px; color: #666; margin: 10px 0;">User profile information and settings</p>
+        </div>
+        
+        <div style="flex: 1; min-width: 250px; border: 1px solid #ddd; border-radius: 5px; padding: 15px; background-color: white;">
+          <h4>FriendsList.vue</h4>
+          <p style="font-size: 14px; color: #666; margin: 10px 0;">List of user's friends and connections</p>
+        </div>
+        
+        <div style="flex: 1; min-width: 250px; border: 1px solid #ddd; border-radius: 5px; padding: 15px; background-color: white;">
+          <h4>ComparisonView.vue</h4>
+          <p style="font-size: 14px; color: #666; margin: 10px 0;">Side-by-side comparison of rankings</p>
+        </div>
+        
+        <div style="flex: 1; min-width: 250px; border: 1px solid #ddd; border-radius: 5px; padding: 15px; background-color: white;">
+          <h4>ReviewEditor.vue</h4>
+          <p style="font-size: 14px; color: #666; margin: 10px 0;">Interface for writing and editing reviews</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Component Hierarchy -->
+  <h3>Component Hierarchy</h3>
+  <div style="margin: 20px 0; background-color: #f8f9fa; border-radius: 5px; padding: 20px; overflow-x: auto;">
+    <pre style="font-family: monospace; line-height: 1.5; font-size: 14px;">
+App.vue
+├── Dashboard.vue
+│   └── DashboardCard.vue
+├── EditRankings.vue
+│   └── EditRankingsTabs.vue
+└── SidebarPanel.vue
+    ├── TabSelector.vue
+    ├── RankingsList.vue
+    └── ReviewEditor.vue (planned)
+    </pre>
+  </div>
+  
+  <!-- Developer Notes -->
+  <div class="dev-notes" style="margin-top: 30px;">
+    <h3>Developer Notes</h3>
+    <textarea id="note-components" placeholder="Add your developer notes about the components here..." style="width: 100%; min-height: 100px;"></textarea>
+    <div class="dev-notes-actions">
+      <button onclick="Storage.saveNote('components', document.getElementById('note-components').value); alert('Note saved!');">Save Note</button>
+    </div>
+  </div>
+</div>
