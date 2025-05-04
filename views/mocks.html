@@ -5,7 +5,8 @@
   <!-- Tabs Navigation -->
   <div class="mocks-tabs">
     <div class="tab-nav">
-      <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+      <button class="tab-button active" data-tab="overview">Overview</button>
+      <button class="tab-button" data-tab="dashboard">Dashboard</button>
       <button class="tab-button" data-tab="edit-rankings">Edit Rankings</button>
       <button class="tab-button" data-tab="sidebar">Sidebar Detail</button>
       <button class="tab-button" data-tab="profile">User Profile</button>
@@ -15,67 +16,281 @@
     
     <!-- Tab Content -->
     <div class="tab-content">
+      <!-- Overview Tab -->
+      <div class="tab-pane active" id="overview-tab">
+        <div class="mock-header">
+          <h3>Screen Overview</h3>
+          <p>A comprehensive view of all screens in the Music Besties application.</p>
+        </div>
+        <div class="overview-table-container">
+          <table class="overview-table">
+            <thead>
+              <tr>
+                <th>Screen Name</th>
+                <th>Status</th>
+                <th>Purpose</th>
+                <th>Navigation Paths</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dashboard</td>
+                <td><span class="status-indicator status-completed">🟢 Completed</span></td>
+                <td>Main view of user's top ranked albums</td>
+                <td>
+                  <ul>
+                    <li>→ Edit Rankings</li>
+                    <li>→ User Profile</li>
+                    <li>→ Friends List</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>Edit Rankings</td>
+                <td><span class="status-indicator status-in-progress">🟡 In Progress</span></td>
+                <td>Interface for reordering and editing ranks</td>
+                <td>
+                  <ul>
+                    <li>→ Dashboard</li>
+                    <li>→ Comparison View</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>Sidebar Detail</td>
+                <td><span class="status-indicator status-completed">🟢 Completed</span></td>
+                <td>Detail panel for selected album</td>
+                <td>
+                  <ul>
+                    <li>→ Dashboard</li>
+                    <li>→ User Profile</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>User Profile</td>
+                <td><span class="status-indicator status-not-started">🔴 Not Started</span></td>
+                <td>User settings and preferences</td>
+                <td>
+                  <ul>
+                    <li>→ Dashboard</li>
+                    <li>→ Friends List</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>Friends List</td>
+                <td><span class="status-indicator status-not-started">🔴 Not Started</span></td>
+                <td>View and manage friend connections</td>
+                <td>
+                  <ul>
+                    <li>→ Dashboard</li>
+                    <li>→ Comparison View</li>
+                    <li>→ User Profile</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>Comparison View</td>
+                <td><span class="status-indicator status-not-started">🔴 Not Started</span></td>
+                <td>Compare rankings with friends</td>
+                <td>
+                  <ul>
+                    <li>→ Dashboard</li>
+                    <li>→ Friends List</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mock-notes">
+          <h4>Developer Notes</h4>
+          <textarea class="note-input" data-section="overview-mock" placeholder="Add your notes about this overview here..."></textarea>
+        </div>
+      </div>
+      
       <!-- Dashboard Tab -->
-      <div class="tab-pane active" id="dashboard-tab">
+      <div class="tab-pane" id="dashboard-tab">
         <div class="mock-header">
           <h3>Dashboard <span class="status-indicator status-completed">[🟢 Completed]</span></h3>
           <p>Main view showing all rankings across different categories.</p>
         </div>
-        <div class="mock-preview">
-          <div class="mock-frame">
-            <div class="mock-device">
-              <div class="mock-app-header">
-                <div class="mock-title">My Rankings</div>
-                <div class="mock-button">Edit</div>
-              </div>
-              
-              <div class="mock-content">
-                <div class="mock-grid">
-                  <div class="mock-card">
-                    <div class="mock-card-content">
-                      <div class="mock-card-title">Fearless 💛</div>
-                      <div class="mock-card-subtitle">Taylor Swift</div>
-                    </div>
-                    <div class="mock-rank">1</div>
+        
+        <!-- Two-panel layout -->
+        <div class="mock-two-panel">
+          <!-- Left panel: Current mockup (1/3 width) -->
+          <div class="mock-panel-left">
+            <div class="mock-preview">
+              <div class="mock-frame">
+                <div class="mock-device">
+                  <div class="mock-app-header">
+                    <div class="mock-title">My Rankings</div>
+                    <div class="mock-button">Edit</div>
                   </div>
                   
-                  <div class="mock-card">
-                    <div class="mock-card-content">
-                      <div class="mock-card-title">Red ❤️</div>
-                      <div class="mock-card-subtitle">Taylor Swift</div>
+                  <div class="mock-content">
+                    <div class="mock-grid">
+                      <div class="mock-card">
+                        <div class="mock-card-content">
+                          <div class="mock-card-title">Fearless 💛</div>
+                          <div class="mock-card-subtitle">Taylor Swift</div>
+                        </div>
+                        <div class="mock-rank">1</div>
+                      </div>
+                      
+                      <div class="mock-card">
+                        <div class="mock-card-content">
+                          <div class="mock-card-title">Red ❤️</div>
+                          <div class="mock-card-subtitle">Taylor Swift</div>
+                        </div>
+                        <div class="mock-rank">2</div>
+                      </div>
+                      
+                      <div class="mock-card">
+                        <div class="mock-card-content">
+                          <div class="mock-card-title">1989 🌃</div>
+                          <div class="mock-card-subtitle">Taylor Swift</div>
+                        </div>
+                        <div class="mock-rank">3</div>
+                      </div>
+                      
+                      <div class="mock-card">
+                        <div class="mock-card-content">
+                          <div class="mock-card-title">Folklore 🌲</div>
+                          <div class="mock-card-subtitle">Taylor Swift</div>
+                        </div>
+                        <div class="mock-rank">4</div>
+                      </div>
                     </div>
-                    <div class="mock-rank">2</div>
                   </div>
                   
-                  <div class="mock-card">
-                    <div class="mock-card-content">
-                      <div class="mock-card-title">1989 🌃</div>
-                      <div class="mock-card-subtitle">Taylor Swift</div>
-                    </div>
-                    <div class="mock-rank">3</div>
-                  </div>
-                  
-                  <div class="mock-card">
-                    <div class="mock-card-content">
-                      <div class="mock-card-title">Folklore 🌲</div>
-                      <div class="mock-card-subtitle">Taylor Swift</div>
-                    </div>
-                    <div class="mock-rank">4</div>
+                  <div class="mock-nav">
+                    <div class="mock-nav-item active">Home</div>
+                    <div class="mock-nav-item">Search</div>
+                    <div class="mock-nav-item">Profile</div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          
+          <!-- Right panel: Tabs section (2/3 width) -->
+          <div class="mock-panel-right">
+            <div class="detail-tabs">
+              <div class="detail-tab-nav">
+                <button class="detail-tab-button active" data-detail-tab="backend-dashboard">Backend Breakdown</button>
+                <button class="detail-tab-button" data-detail-tab="alt-ui-dashboard">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="notes-dashboard">Developer Notes</button>
+              </div>
               
-              <div class="mock-nav">
-                <div class="mock-nav-item active">Home</div>
-                <div class="mock-nav-item">Search</div>
-                <div class="mock-nav-item">Profile</div>
+              <div class="detail-tab-content">
+                <!-- Backend Breakdown Tab -->
+                <div class="detail-tab-pane active" id="backend-dashboard-tab">
+                  <h4>Backend Implementation Details</h4>
+                  <div class="backend-breakdown">
+                    <h5>API Endpoints</h5>
+                    <pre><code>
+GET /api/albums
+  - Returns user's ranked albums
+  - Query params: limit, offset
+
+PUT /api/albums/rank
+  - Updates album rankings
+  - Body: { albumId, newRank }
+                    </code></pre>
+                    
+                    <h5>Data Models</h5>
+                    <pre><code>
+Album {
+  id: string,
+  title: string,
+  artist: string,
+  artwork: string,
+  rank: number
+}
+
+UserRanking {
+  userId: string,
+  albumId: string,
+  rank: number,
+  notes: string
+}
+                    </code></pre>
+                    
+                    <h5>Controllers</h5>
+                    <ul>
+                      <li><strong>AlbumController</strong> - Handles album data retrieval</li>
+                      <li><strong>RankingController</strong> - Manages user rankings</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Alternative UI Tab -->
+                <div class="detail-tab-pane" id="alt-ui-dashboard-tab">
+                  <h4>Alternative UI Designs</h4>
+                  <div class="alt-ui-designs">
+                    <h5>List View</h5>
+                    <pre>
++----------------------------------+
+| My Rankings                 Edit |
++----------------------------------+
+| 1. Fearless 💛                  |
+|    Taylor Swift                  |
++----------------------------------+
+| 2. Red ❤️                       |
+|    Taylor Swift                  |
++----------------------------------+
+| 3. 1989 🌃                      |
+|    Taylor Swift                  |
++----------------------------------+
+| 4. Folklore 🌲                  |
+|    Taylor Swift                  |
++----------------------------------+
+|  Home    Search    Profile       |
++----------------------------------+
+                    </pre>
+                    
+                    <h5>Carousel View</h5>
+                    <pre>
++----------------------------------+
+| My Rankings                 Edit |
++----------------------------------+
+|      +-----------------+         |
+|  <   |   Fearless 💛   |   >     |
+|      |   Taylor Swift  |         |
+|      |       #1        |         |
+|      +-----------------+         |
+|                                  |
+|        ○ ● ○ ○ ○ ○              |
++----------------------------------+
+|  Home    Search    Profile       |
++----------------------------------+
+                    </pre>
+                  </div>
+                </div>
+                
+                <!-- Developer Notes Tab -->
+                <div class="detail-tab-pane" id="notes-dashboard-tab">
+                  <h4>Developer Notes</h4>
+                  
+                  <!-- Comment Form -->
+                  <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Add a comment..."></textarea>
+                    <div class="comment-form-footer">
+                      <input type="text" class="comment-author" placeholder="Your name" maxlength="30">
+                      <button class="comment-submit" data-section="dashboard-mock">Post Comment</button>
+                    </div>
+                  </div>
+                  
+                  <!-- Comments List (newest first) -->
+                  <div class="comments-list" id="dashboard-comments">
+                    <!-- Comments will be dynamically inserted here -->
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mock-notes">
-          <h4>Developer Notes</h4>
-          <textarea class="note-input" data-section="dashboard-mock" placeholder="Add your notes about this mockup here..."></textarea>
         </div>
       </div>
       
@@ -85,73 +300,213 @@
           <h3>Edit Rankings <span class="status-indicator status-in-progress">[🟡 In Progress]</span></h3>
           <p>Interface for ranking items by dragging and reordering.</p>
         </div>
-        <div class="mock-preview">
-          <div class="mock-frame">
-            <div class="mock-device">
-              <div class="mock-app-header">
-                <div class="mock-button secondary">Cancel</div>
-                <div class="mock-title">Edit Rankings</div>
-                <div class="mock-button primary">Save</div>
-              </div>
-              
-              <div class="mock-tabs">
-                <div class="mock-tab active">Eras</div>
-                <div class="mock-tab">Albums</div>
-                <div class="mock-tab">Songs</div>
-              </div>
-              
-              <div class="mock-content">
-                <div class="mock-section">
-                  <div class="mock-section-title">Ranked</div>
-                  <div class="mock-list">
-                    <div class="mock-list-item">
-                      <div class="mock-item-content">
-                        <div class="mock-rank">1</div>
-                        <div class="mock-item-title">Fearless 💛</div>
-                      </div>
-                      <div class="mock-item-action">✕</div>
-                    </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-content">
-                        <div class="mock-rank">2</div>
-                        <div class="mock-item-title">Red ❤️</div>
-                      </div>
-                      <div class="mock-item-action">✕</div>
-                    </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-content">
-                        <div class="mock-rank">3</div>
-                        <div class="mock-item-title">1989 🌃</div>
-                      </div>
-                      <div class="mock-item-action">✕</div>
-                    </div>
+        
+        <!-- Two-panel layout -->
+        <div class="mock-two-panel">
+          <!-- Left panel: Current mockup (1/3 width) -->
+          <div class="mock-panel-left">
+            <div class="mock-preview">
+              <div class="mock-frame">
+                <div class="mock-device">
+                  <div class="mock-app-header">
+                    <div class="mock-button secondary">Cancel</div>
+                    <div class="mock-title">Edit Rankings</div>
+                    <div class="mock-button primary">Save</div>
                   </div>
-                </div>
-                
-                <div class="mock-section">
-                  <div class="mock-section-title">Unranked</div>
-                  <div class="mock-list">
-                    <div class="mock-list-item">
-                      <div class="mock-item-title">Reputation 🐍</div>
-                      <div class="mock-item-action add">+</div>
+                  
+                  <div class="mock-tabs">
+                    <div class="mock-tab active">Eras</div>
+                    <div class="mock-tab">Albums</div>
+                    <div class="mock-tab">Songs</div>
+                  </div>
+                  
+                  <div class="mock-content">
+                    <div class="mock-section">
+                      <div class="mock-section-title">Ranked</div>
+                      <div class="mock-list">
+                        <div class="mock-list-item">
+                          <div class="mock-drag-handle">⋮⋮</div>
+                          <div class="mock-item-content">
+                            <div class="mock-item-title">Fearless 💛</div>
+                            <div class="mock-item-subtitle">Taylor Swift</div>
+                          </div>
+                          <div class="mock-rank">1</div>
+                        </div>
+                        
+                        <div class="mock-list-item">
+                          <div class="mock-drag-handle">⋮⋮</div>
+                          <div class="mock-item-content">
+                            <div class="mock-item-title">Red ❤️</div>
+                            <div class="mock-item-subtitle">Taylor Swift</div>
+                          </div>
+                          <div class="mock-rank">2</div>
+                        </div>
+                        
+                        <div class="mock-list-item">
+                          <div class="mock-drag-handle">⋮⋮</div>
+                          <div class="mock-item-content">
+                            <div class="mock-item-title">1989 🌃</div>
+                            <div class="mock-item-subtitle">Taylor Swift</div>
+                          </div>
+                          <div class="mock-rank">3</div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-title">Lover 💕</div>
-                      <div class="mock-item-action add">+</div>
-                    </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-title">Folklore 🌲</div>
-                      <div class="mock-item-action add">+</div>
+                    
+                    <div class="mock-section">
+                      <div class="mock-section-title">Unranked</div>
+                      <div class="mock-list">
+                        <div class="mock-list-item">
+                          <div class="mock-drag-handle">⋮⋮</div>
+                          <div class="mock-item-content">
+                            <div class="mock-item-title">Folklore 🌲</div>
+                            <div class="mock-item-subtitle">Taylor Swift</div>
+                          </div>
+                        </div>
+                        
+                        <div class="mock-list-item">
+                          <div class="mock-drag-handle">⋮⋮</div>
+                          <div class="mock-item-content">
+                            <div class="mock-item-title">Midnights 🌙</div>
+                            <div class="mock-item-subtitle">Taylor Swift</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mock-notes">
-          <h4>Developer Notes</h4>
-          <textarea class="note-input" data-section="edit-rankings-mock" placeholder="Add your notes about this mockup here..."></textarea>
+          
+          <!-- Right panel: Tabs section (2/3 width) -->
+          <div class="mock-panel-right">
+            <div class="detail-tabs">
+              <div class="detail-tab-nav">
+                <button class="detail-tab-button active" data-detail-tab="backend-edit-rankings">Backend Breakdown</button>
+                <button class="detail-tab-button" data-detail-tab="alt-ui-edit-rankings">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="notes-edit-rankings">Developer Notes</button>
+              </div>
+              
+              <div class="detail-tab-content">
+                <!-- Backend Breakdown Tab -->
+                <div class="detail-tab-pane active" id="backend-edit-rankings-tab">
+                  <h4>Backend Implementation Details</h4>
+                  <div class="backend-breakdown">
+                    <h5>API Endpoints</h5>
+                    <pre><code>
+GET /api/albums/unranked
+  - Returns user's unranked albums
+  - Query params: limit, offset
+
+PUT /api/albums/rank
+  - Updates album rankings
+  - Body: { albumId, newRank }
+
+POST /api/albums/reorder
+  - Reorders multiple albums at once
+  - Body: { albumIds: [id1, id2, ...] }
+                    </code></pre>
+                    
+                    <h5>Data Models</h5>
+                    <pre><code>
+UserRanking {
+  userId: string,
+  albumId: string,
+  rank: number,
+  category: string, // 'album', 'era', 'song'
+  lastModified: timestamp
+}
+
+RankingHistory {
+  userId: string,
+  albumId: string,
+  oldRank: number,
+  newRank: number,
+  timestamp: timestamp
+}
+                    </code></pre>
+                    
+                    <h5>Controllers</h5>
+                    <ul>
+                      <li><strong>RankingController</strong> - Manages user rankings</li>
+                      <li><strong>DragDropController</strong> - Handles drag and drop interactions</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Alternative UI Tab -->
+                <div class="detail-tab-pane" id="alt-ui-edit-rankings-tab">
+                  <h4>Alternative UI Designs</h4>
+                  <div class="alt-ui-designs">
+                    <h5>Card View</h5>
+                    <pre>
++----------------------------------+
+| Cancel  Edit Rankings       Save |
++----------------------------------+
+| [Eras] [Albums] [Songs]          |
++----------------------------------+
+| Ranked                           |
++----------------------------------+
+| +-----+  +-----+  +-----+        |
+| |  1  |  |  2  |  |  3  |        |
+| |     |  |     |  |     |        |
+| |Fear-|  | Red |  |1989 |        |
+| |less |  |     |  |     |        |
+| +-----+  +-----+  +-----+        |
+|                                  |
+| Unranked                         |
++----------------------------------+
+| +-----+  +-----+                 |
+| |     |  |     |                 |
+| |Folk-|  | Mid-|                 |
+| |lore |  |night|                 |
+| |     |  |     |                 |
+| +-----+  +-----+                 |
++----------------------------------+
+                    </pre>
+                    
+                    <h5>Simple List View</h5>
+                    <pre>
++----------------------------------+
+| Cancel  Edit Rankings       Save |
++----------------------------------+
+| [Eras] [Albums] [Songs]          |
++----------------------------------+
+| Ranked:                          |
+| 1. Fearless - Taylor Swift       |
+| 2. Red - Taylor Swift            |
+| 3. 1989 - Taylor Swift           |
+|                                  |
+| Unranked:                        |
+| • Folklore - Taylor Swift        |
+| • Midnights - Taylor Swift       |
++----------------------------------+
+                    </pre>
+                  </div>
+                </div>
+                
+                <!-- Developer Notes Tab -->
+                <div class="detail-tab-pane" id="notes-edit-rankings-tab">
+                  <h4>Developer Notes</h4>
+                  
+                  <!-- Comment Form -->
+                  <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Add a comment..."></textarea>
+                    <div class="comment-form-footer">
+                      <input type="text" class="comment-author" placeholder="Your name" maxlength="30">
+                      <button class="comment-submit" data-section="edit-rankings-mock">Post Comment</button>
+                    </div>
+                  </div>
+                  
+                  <!-- Comments List (newest first) -->
+                  <div class="comments-list" id="edit-rankings-comments">
+                    <!-- Comments will be dynamically inserted here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -159,54 +514,57 @@
       <div class="tab-pane" id="sidebar-tab">
         <div class="mock-header">
           <h3>Sidebar Detail <span class="status-indicator status-completed">[🟢 Completed]</span></h3>
-          <p>Detailed view of a selected item with additional information.</p>
+          <p>Detailed view of a selected album with additional information.</p>
         </div>
-        <div class="mock-preview">
-          <div class="mock-frame">
-            <div class="mock-device with-sidebar">
-              <div class="mock-app-background"></div>
-              <div class="mock-sidebar">
-                <div class="mock-sidebar-header">
-                  <div class="mock-title">Red ❤️</div>
-                  <div class="mock-close">✕</div>
-                </div>
-                
-                <div class="mock-tabs">
-                  <div class="mock-tab active">Rankings</div>
-                  <div class="mock-tab">Review</div>
-                </div>
-                
-                <div class="mock-content">
-                  <h4>Song Rankings</h4>
-                  <div class="mock-list">
-                    <div class="mock-list-item">
-                      <div class="mock-item-content">
-                        <div class="mock-rank">1</div>
-                        <div class="mock-item-title">All Too Well (10 Minute Version)</div>
+        
+        <!-- Two-panel layout -->
+        <div class="mock-two-panel">
+          <!-- Left panel: Current mockup (1/3 width) -->
+          <div class="mock-panel-left">
+            <div class="mock-preview">
+              <div class="mock-frame">
+                <div class="mock-device">
+                  <div class="mock-app-header">
+                    <div class="mock-close">✕</div>
+                    <div class="mock-title">Album Details</div>
+                  </div>
+                  
+                  <div class="mock-content">
+                    <div class="mock-album-detail">
+                      <div class="mock-album-cover">
+                        <div class="mock-album-image">🌃</div>
+                      </div>
+                      <div class="mock-album-info">
+                        <div class="mock-album-title">1989</div>
+                        <div class="mock-album-artist">Taylor Swift</div>
+                        <div class="mock-album-meta">Released: 2014</div>
+                        <div class="mock-album-meta">Genre: Pop</div>
+                        <div class="mock-album-rank">#3 in Your Rankings</div>
                       </div>
                     </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-content">
-                        <div class="mock-rank">2</div>
-                        <div class="mock-item-title">State of Grace</div>
+                    
+                    <div class="mock-section">
+                      <div class="mock-section-title">Top Tracks</div>
+                      <div class="mock-list">
+                        <div class="mock-list-item">
+                          <div class="mock-item-title">Blank Space</div>
+                          <div class="mock-item-subtitle">3:51</div>
+                        </div>
+                        <div class="mock-list-item">
+                          <div class="mock-item-title">Style</div>
+                          <div class="mock-item-subtitle">3:51</div>
+                        </div>
+                        <div class="mock-list-item">
+                          <div class="mock-item-title">Shake It Off</div>
+                          <div class="mock-item-subtitle">3:39</div>
+                        </div>
                       </div>
                     </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-content">
-                        <div class="mock-rank">3</div>
-                        <div class="mock-item-title">Red</div>
-                      </div>
-                    </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-content">
-                        <div class="mock-rank">4</div>
-                        <div class="mock-item-title">Holy Ground</div>
-                      </div>
-                    </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-content">
-                        <div class="mock-rank">5</div>
-                        <div class="mock-item-title">Treacherous</div>
+                    
+                    <div class="mock-section">
+                      <div class="mock-section-title">Your Notes</div>
+                      <div class="mock-notes-content">
+                        Love the production on this album. The synth-pop sound was a perfect evolution for Taylor.
                       </div>
                     </div>
                   </div>
@@ -214,10 +572,149 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="mock-notes">
-          <h4>Developer Notes</h4>
-          <textarea class="note-input" data-section="sidebar-mock" placeholder="Add your notes about this mockup here..."></textarea>
+          
+          <!-- Right panel: Tabs section (2/3 width) -->
+          <div class="mock-panel-right">
+            <div class="detail-tabs">
+              <div class="detail-tab-nav">
+                <button class="detail-tab-button active" data-detail-tab="backend-sidebar">Backend Breakdown</button>
+                <button class="detail-tab-button" data-detail-tab="alt-ui-sidebar">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="notes-sidebar">Developer Notes</button>
+              </div>
+              
+              <div class="detail-tab-content">
+                <!-- Backend Breakdown Tab -->
+                <div class="detail-tab-pane active" id="backend-sidebar-tab">
+                  <h4>Backend Implementation Details</h4>
+                  <div class="backend-breakdown">
+                    <h5>API Endpoints</h5>
+                    <pre><code>
+GET /api/albums/{albumId}
+  - Returns detailed album information
+  - Includes tracks, metadata, user notes
+
+POST /api/albums/{albumId}/notes
+  - Updates user notes for an album
+  - Body: { notes: string }
+
+GET /api/albums/{albumId}/tracks
+  - Returns tracks for the album
+  - Query params: limit, offset
+                    </code></pre>
+                    
+                    <h5>Data Models</h5>
+                    <pre><code>
+AlbumDetail {
+  id: string,
+  title: string,
+  artist: string,
+  releaseDate: date,
+  genre: string,
+  coverArt: string,
+  tracks: Track[],
+  userNotes: string,
+  userRank: number
+}
+
+Track {
+  id: string,
+  title: string,
+  duration: number,
+  trackNumber: number
+}
+                    </code></pre>
+                    
+                    <h5>Controllers</h5>
+                    <ul>
+                      <li><strong>AlbumDetailController</strong> - Handles album detail view</li>
+                      <li><strong>TrackController</strong> - Manages track data</li>
+                      <li><strong>NotesController</strong> - Handles user notes</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Alternative UI Tab -->
+                <div class="detail-tab-pane" id="alt-ui-sidebar-tab">
+                  <h4>Alternative UI Designs</h4>
+                  <div class="alt-ui-designs">
+                    <h5>Full Screen View</h5>
+                    <pre>
++----------------------------------+
+|  ✕             Album Details     |
++----------------------------------+
+|                                  |
+|            +--------+            |
+|            |  1989  |            |
+|            |   🌃   |            |
+|            +--------+            |
+|                                  |
+|  1989                            |
+|  Taylor Swift                    |
+|  Released: 2014 • Genre: Pop     |
+|  #3 in Your Rankings             |
+|                                  |
+|  Top Tracks                      |
+|  --------------------------------|
+|  Blank Space             3:51    |
+|  Style                   3:51    |
+|  Shake It Off            3:39    |
+|                                  |
+|  Your Notes                      |
+|  --------------------------------|
+|  Love the production on this     |
+|  album. The synth-pop sound was  |
+|  a perfect evolution for Taylor. |
++----------------------------------+
+                    </pre>
+                    
+                    <h5>Tabbed Detail View</h5>
+                    <pre>
++----------------------------------+
+|  ✕             Album Details     |
++----------------------------------+
+| [Info] [Tracks] [Stats] [Notes]  |
++----------------------------------+
+|                                  |
+|            +--------+            |
+|            |  1989  |            |
+|            |   🌃   |            |
+|            +--------+            |
+|                                  |
+|  1989                            |
+|  Taylor Swift                    |
+|  Released: 2014                  |
+|  Genre: Pop                      |
+|  Length: 48:41                   |
+|  Tracks: 13                      |
+|                                  |
+|  #3 in Your Rankings             |
+|                                  |
++----------------------------------+
+                    </pre>
+                  </div>
+                </div>
+                
+                <!-- Developer Notes Tab -->
+                <div class="detail-tab-pane" id="notes-sidebar-tab">
+                  <h4>Developer Notes</h4>
+                  
+                  <!-- Comment Form -->
+                  <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Add a comment..."></textarea>
+                    <div class="comment-form-footer">
+                      <input type="text" class="comment-author" placeholder="Your name" maxlength="30">
+                      <button class="comment-submit" data-section="sidebar-mock">Post Comment</button>
+                    </div>
+                  </div>
+                  
+                  <!-- Comments List (newest first) -->
+                  <div class="comments-list" id="sidebar-comments">
+                    <!-- Comments will be dynamically inserted here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -225,66 +722,243 @@
       <div class="tab-pane" id="profile-tab">
         <div class="mock-header">
           <h3>User Profile <span class="status-indicator status-not-started">[🔴 Not Started]</span></h3>
-          <p>User account information and settings.</p>
+          <p>User profile page with settings and preferences.</p>
         </div>
-        <div class="mock-preview">
-          <div class="mock-frame">
-            <div class="mock-device">
-              <div class="mock-app-header">
-                <div class="mock-title">Profile</div>
-                <div class="mock-button">Edit</div>
-              </div>
-              
-              <div class="mock-content">
-                <div class="mock-profile">
-                  <div class="mock-avatar"></div>
-                  <div class="mock-username">TaylorFan1989</div>
-                  <div class="mock-stats">
-                    <div class="mock-stat">
-                      <div class="mock-stat-value">42</div>
-                      <div class="mock-stat-label">Rankings</div>
+        
+        <!-- Two-panel layout -->
+        <div class="mock-two-panel">
+          <!-- Left panel: Current mockup (1/3 width) -->
+          <div class="mock-panel-left">
+            <div class="mock-preview">
+              <div class="mock-frame">
+                <div class="mock-device">
+                  <div class="mock-app-header">
+                    <div class="mock-title">Profile</div>
+                    <div class="mock-button">Edit</div>
+                  </div>
+                  
+                  <div class="mock-content">
+                    <div class="mock-profile-header">
+                      <div class="mock-avatar">👤</div>
+                      <div class="mock-profile-info">
+                        <div class="mock-profile-name">Taylor Fan</div>
+                        <div class="mock-profile-username">@swiftie4ever</div>
+                        <div class="mock-profile-stats">
+                          <span>42 Rankings</span>
+                          <span>18 Friends</span>
+                        </div>
+                      </div>
                     </div>
-                    <div class="mock-stat">
-                      <div class="mock-stat-value">15</div>
-                      <div class="mock-stat-label">Friends</div>
+                    
+                    <div class="mock-section">
+                      <div class="mock-section-title">About Me</div>
+                      <div class="mock-profile-bio">
+                        Music lover with a passion for pop and indie. Taylor Swift enthusiast since 2008.
+                      </div>
                     </div>
-                    <div class="mock-stat">
-                      <div class="mock-stat-value">89</div>
-                      <div class="mock-stat-label">Reviews</div>
+                    
+                    <div class="mock-section">
+                      <div class="mock-section-title">Top Artists</div>
+                      <div class="mock-list">
+                        <div class="mock-list-item">
+                          <div class="mock-item-title">Taylor Swift</div>
+                          <div class="mock-item-subtitle">4 albums ranked</div>
+                        </div>
+                        <div class="mock-list-item">
+                          <div class="mock-item-title">Phoebe Bridgers</div>
+                          <div class="mock-item-subtitle">2 albums ranked</div>
+                        </div>
+                        <div class="mock-list-item">
+                          <div class="mock-item-title">The National</div>
+                          <div class="mock-item-subtitle">3 albums ranked</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="mock-section">
+                      <div class="mock-section-title">Settings</div>
+                      <div class="mock-settings-list">
+                        <div class="mock-settings-item">
+                          <div class="mock-settings-label">Privacy</div>
+                          <div class="mock-settings-value">Friends Only</div>
+                        </div>
+                        <div class="mock-settings-item">
+                          <div class="mock-settings-label">Notifications</div>
+                          <div class="mock-settings-value">On</div>
+                        </div>
+                        <div class="mock-settings-item">
+                          <div class="mock-settings-label">Theme</div>
+                          <div class="mock-settings-value">Light</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                
-                <div class="mock-section">
-                  <div class="mock-section-title">Account Settings</div>
-                  <div class="mock-list">
-                    <div class="mock-list-item">
-                      <div class="mock-item-title">Email</div>
-                      <div class="mock-item-value">user@example.com</div>
-                    </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-title">Notifications</div>
-                      <div class="mock-toggle active"></div>
-                    </div>
-                    <div class="mock-list-item">
-                      <div class="mock-item-title">Privacy</div>
-                      <div class="mock-chevron">›</div>
-                    </div>
+                  
+                  <div class="mock-nav">
+                    <div class="mock-nav-item">Home</div>
+                    <div class="mock-nav-item">Search</div>
+                    <div class="mock-nav-item active">Profile</div>
                   </div>
                 </div>
-              </div>
-              
-              <div class="mock-nav">
-                <div class="mock-nav-item">Home</div>
-                <div class="mock-nav-item">Search</div>
-                <div class="mock-nav-item active">Profile</div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mock-notes">
-          <h4>Developer Notes</h4>
-          <textarea class="note-input" data-section="profile-mock" placeholder="Add your notes about this mockup here..."></textarea>
+          
+          <!-- Right panel: Tabs section (2/3 width) -->
+          <div class="mock-panel-right">
+            <div class="detail-tabs">
+              <div class="detail-tab-nav">
+                <button class="detail-tab-button active" data-detail-tab="backend-profile">Backend Breakdown</button>
+                <button class="detail-tab-button" data-detail-tab="alt-ui-profile">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="notes-profile">Developer Notes</button>
+              </div>
+              
+              <div class="detail-tab-content">
+                <!-- Backend Breakdown Tab -->
+                <div class="detail-tab-pane active" id="backend-profile-tab">
+                  <h4>Backend Implementation Details</h4>
+                  <div class="backend-breakdown">
+                    <h5>API Endpoints</h5>
+                    <pre><code>
+GET /api/users/{userId}
+  - Returns user profile information
+  - Includes stats, bio, settings
+
+PUT /api/users/{userId}
+  - Updates user profile
+  - Body: { name, username, bio, settings }
+
+GET /api/users/{userId}/top-artists
+  - Returns user's most ranked artists
+  - Query params: limit, offset
+                    </code></pre>
+                    
+                    <h5>Data Models</h5>
+                    <pre><code>
+UserProfile {
+  id: string,
+  name: string,
+  username: string,
+  bio: string,
+  avatarUrl: string,
+  stats: {
+    rankingsCount: number,
+    friendsCount: number
+  },
+  settings: {
+    privacy: 'public' | 'friends' | 'private',
+    notifications: boolean,
+    theme: 'light' | 'dark' | 'system'
+  }
+}
+
+TopArtist {
+  id: string,
+  name: string,
+  albumsRanked: number,
+  averageRank: number
+}
+                    </code></pre>
+                    
+                    <h5>Controllers</h5>
+                    <ul>
+                      <li><strong>UserController</strong> - Handles user profile data</li>
+                      <li><strong>SettingsController</strong> - Manages user settings</li>
+                      <li><strong>StatsController</strong> - Calculates and serves user statistics</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Alternative UI Tab -->
+                <div class="detail-tab-pane" id="alt-ui-profile-tab">
+                  <h4>Alternative UI Designs</h4>
+                  <div class="alt-ui-designs">
+                    <h5>Card-Based Layout</h5>
+                    <pre>
++----------------------------------+
+|  Profile                    Edit |
++----------------------------------+
+|                                  |
+|             👤                   |
+|        Taylor Fan                |
+|       @swiftie4ever              |
+|    42 Rankings | 18 Friends      |
+|                                  |
+| +------------------------------+ |
+| | About Me                     | |
+| | Music lover with a passion   | |
+| | for pop and indie. Taylor    | |
+| | Swift enthusiast since 2008. | |
+| +------------------------------+ |
+|                                  |
+| +------------------------------+ |
+| | Top Artists                  | |
+| | • Taylor Swift (4)           | |
+| | • Phoebe Bridgers (2)        | |
+| | • The National (3)           | |
+| +------------------------------+ |
+|                                  |
+| +------------------------------+ |
+| | Settings                     | |
+| | Privacy: Friends Only        | |
+| | Notifications: On            | |
+| | Theme: Light                 | |
+| +------------------------------+ |
+|                                  |
+|  Home     Search     Profile     |
++----------------------------------+
+                    </pre>
+                    
+                    <h5>Tabbed Profile</h5>
+                    <pre>
++----------------------------------+
+|  Profile                    Edit |
++----------------------------------+
+|                                  |
+|             👤                   |
+|        Taylor Fan                |
+|       @swiftie4ever              |
+|                                  |
+| [Info] [Rankings] [Friends] [Settings] |
++----------------------------------+
+|                                  |
+| About Me                         |
+| Music lover with a passion for   |
+| pop and indie. Taylor Swift      |
+| enthusiast since 2008.           |
+|                                  |
+| Top Artists                      |
+| • Taylor Swift (4 albums)        |
+| • Phoebe Bridgers (2 albums)     |
+| • The National (3 albums)        |
+|                                  |
+|  Home     Search     Profile     |
++----------------------------------+
+                    </pre>
+                  </div>
+                </div>
+                
+                <!-- Developer Notes Tab -->
+                <div class="detail-tab-pane" id="notes-profile-tab">
+                  <h4>Developer Notes</h4>
+                  
+                  <!-- Comment Form -->
+                  <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Add a comment..."></textarea>
+                    <div class="comment-form-footer">
+                      <input type="text" class="comment-author" placeholder="Your name" maxlength="30">
+                      <button class="comment-submit" data-section="profile-mock">Post Comment</button>
+                    </div>
+                  </div>
+                  
+                  <!-- Comments List (newest first) -->
+                  <div class="comments-list" id="profile-comments">
+                    <!-- Comments will be dynamically inserted here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -292,66 +966,242 @@
       <div class="tab-pane" id="friends-tab">
         <div class="mock-header">
           <h3>Friends List <span class="status-indicator status-not-started">[🔴 Not Started]</span></h3>
-          <p>View and manage connections with other users.</p>
+          <p>View and manage friend connections.</p>
         </div>
-        <div class="mock-preview">
-          <div class="mock-frame">
-            <div class="mock-device">
-              <div class="mock-app-header">
-                <div class="mock-title">Friends</div>
-                <div class="mock-button">Add</div>
-              </div>
-              
-              <div class="mock-tabs">
-                <div class="mock-tab active">Friends</div>
-                <div class="mock-tab">Requests</div>
-                <div class="mock-tab">Find</div>
-              </div>
-              
-              <div class="mock-content">
-                <div class="mock-search">
-                  <input type="text" placeholder="Search friends..." disabled>
+        
+        <!-- Two-panel layout -->
+        <div class="mock-two-panel">
+          <!-- Left panel: Current mockup (1/3 width) -->
+          <div class="mock-panel-left">
+            <div class="mock-preview">
+              <div class="mock-frame">
+                <div class="mock-device">
+                  <div class="mock-app-header">
+                    <div class="mock-title">Friends</div>
+                    <div class="mock-button">Add</div>
+                  </div>
+                  
+                  <div class="mock-tabs">
+                    <div class="mock-tab active">Friends</div>
+                    <div class="mock-tab">Requests</div>
+                    <div class="mock-tab">Find</div>
+                  </div>
+                  
+                  <div class="mock-content">
+                    <div class="mock-search-bar">
+                      <input type="text" placeholder="Search friends..." />
+                    </div>
+                    
+                    <div class="mock-list">
+                      <div class="mock-list-item">
+                        <div class="mock-avatar small">👩</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">Sarah Johnson</div>
+                          <div class="mock-item-subtitle">@indie_sarah</div>
+                        </div>
+                        <div class="mock-button small">Compare</div>
+                      </div>
+                      
+                      <div class="mock-list-item">
+                        <div class="mock-avatar small">👨</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">Michael Chen</div>
+                          <div class="mock-item-subtitle">@mchen_music</div>
+                        </div>
+                        <div class="mock-button small">Compare</div>
+                      </div>
+                      
+                      <div class="mock-list-item">
+                        <div class="mock-avatar small">👩</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">Emma Wilson</div>
+                          <div class="mock-item-subtitle">@emmaw</div>
+                        </div>
+                        <div class="mock-button small">Compare</div>
+                      </div>
+                      
+                      <div class="mock-list-item">
+                        <div class="mock-avatar small">👨</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">James Smith</div>
+                          <div class="mock-item-subtitle">@jsmith</div>
+                        </div>
+                        <div class="mock-button small">Compare</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="mock-nav">
+                    <div class="mock-nav-item">Home</div>
+                    <div class="mock-nav-item">Search</div>
+                    <div class="mock-nav-item active">Profile</div>
+                  </div>
                 </div>
-                
-                <div class="mock-list">
-                  <div class="mock-list-item">
-                    <div class="mock-avatar small"></div>
-                    <div class="mock-item-content">
-                      <div class="mock-item-title">SwiftieForever</div>
-                      <div class="mock-item-subtitle">15 shared rankings</div>
-                    </div>
-                    <div class="mock-chevron">›</div>
-                  </div>
-                  <div class="mock-list-item">
-                    <div class="mock-avatar small"></div>
-                    <div class="mock-item-content">
-                      <div class="mock-item-title">MusicLover22</div>
-                      <div class="mock-item-subtitle">8 shared rankings</div>
-                    </div>
-                    <div class="mock-chevron">›</div>
-                  </div>
-                  <div class="mock-list-item">
-                    <div class="mock-avatar small"></div>
-                    <div class="mock-item-content">
-                      <div class="mock-item-title">AlbumCollector</div>
-                      <div class="mock-item-subtitle">3 shared rankings</div>
-                    </div>
-                    <div class="mock-chevron">›</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="mock-nav">
-                <div class="mock-nav-item">Home</div>
-                <div class="mock-nav-item active">Friends</div>
-                <div class="mock-nav-item">Profile</div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mock-notes">
-          <h4>Developer Notes</h4>
-          <textarea class="note-input" data-section="friends-mock" placeholder="Add your notes about this mockup here..."></textarea>
+          
+          <!-- Right panel: Tabs section (2/3 width) -->
+          <div class="mock-panel-right">
+            <div class="detail-tabs">
+              <div class="detail-tab-nav">
+                <button class="detail-tab-button active" data-detail-tab="backend-friends">Backend Breakdown</button>
+                <button class="detail-tab-button" data-detail-tab="alt-ui-friends">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="notes-friends">Developer Notes</button>
+              </div>
+              
+              <div class="detail-tab-content">
+                <!-- Backend Breakdown Tab -->
+                <div class="detail-tab-pane active" id="backend-friends-tab">
+                  <h4>Backend Implementation Details</h4>
+                  <div class="backend-breakdown">
+                    <h5>API Endpoints</h5>
+                    <pre><code>
+GET /api/friends
+  - Returns user's friends list
+  - Query params: limit, offset, search
+
+GET /api/friend-requests
+  - Returns pending friend requests
+  - Query params: type (incoming, outgoing)
+
+POST /api/friends/request
+  - Send a friend request
+  - Body: { userId }
+
+PUT /api/friends/request/{requestId}
+  - Accept or reject a friend request
+  - Body: { status: 'accepted' | 'rejected' }
+
+DELETE /api/friends/{friendId}
+  - Remove a friend
+                    </code></pre>
+                    
+                    <h5>Data Models</h5>
+                    <pre><code>
+Friend {
+  userId: string,
+  username: string,
+  name: string,
+  avatarUrl: string,
+  stats: {
+    commonArtists: number,
+    similarityScore: number
+  },
+  friendSince: timestamp
+}
+
+FriendRequest {
+  id: string,
+  fromUser: {
+    id: string,
+    username: string,
+    name: string,
+    avatarUrl: string
+  },
+  toUser: {
+    id: string,
+    username: string
+  },
+  status: 'pending' | 'accepted' | 'rejected',
+  createdAt: timestamp
+}
+                    </code></pre>
+                    
+                    <h5>Controllers</h5>
+                    <ul>
+                      <li><strong>FriendsController</strong> - Manages friend relationships</li>
+                      <li><strong>FriendRequestController</strong> - Handles friend requests</li>
+                      <li><strong>UserSearchController</strong> - Handles user search for finding friends</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Alternative UI Tab -->
+                <div class="detail-tab-pane" id="alt-ui-friends-tab">
+                  <h4>Alternative UI Designs</h4>
+                  <div class="alt-ui-designs">
+                    <h5>Grid View</h5>
+                    <pre>
++----------------------------------+
+|  Friends                     Add |
++----------------------------------+
+| [Friends] [Requests] [Find]      |
++----------------------------------+
+| Search: [                    ]   |
++----------------------------------+
+| +--------+  +--------+           |
+| |   👩   |  |   👨   |           |
+| | Sarah  |  | Michael|           |
+| |Johnson |  |  Chen  |           |
+| |Compare |  |Compare |           |
+| +--------+  +--------+           |
+|                                  |
+| +--------+  +--------+           |
+| |   👩   |  |   👨   |           |
+| |  Emma  |  | James  |           |
+| | Wilson |  | Smith  |           |
+| |Compare |  |Compare |           |
+| +--------+  +--------+           |
+|                                  |
+|  Home     Search     Profile     |
++----------------------------------+
+                    </pre>
+                    
+                    <h5>Detailed List View</h5>
+                    <pre>
++----------------------------------+
+|  Friends                     Add |
++----------------------------------+
+| [Friends] [Requests] [Find]      |
++----------------------------------+
+| Search: [                    ]   |
++----------------------------------+
+| 👩 Sarah Johnson                 |
+|    @indie_sarah                  |
+|    Similarity: 85%               |
+|    Common artists: Taylor Swift  |
+|    [Compare] [Message]           |
++----------------------------------+
+| 👨 Michael Chen                  |
+|    @mchen_music                  |
+|    Similarity: 72%               |
+|    Common artists: The National  |
+|    [Compare] [Message]           |
++----------------------------------+
+| 👩 Emma Wilson                   |
+|    @emmaw                        |
+|    Similarity: 68%               |
+|    Common artists: Phoebe Bridgers|
+|    [Compare] [Message]           |
++----------------------------------+
+|  Home     Search     Profile     |
++----------------------------------+
+                    </pre>
+                  </div>
+                </div>
+                
+                <!-- Developer Notes Tab -->
+                <div class="detail-tab-pane" id="notes-friends-tab">
+                  <h4>Developer Notes</h4>
+                  
+                  <!-- Comment Form -->
+                  <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Add a comment..."></textarea>
+                    <div class="comment-form-footer">
+                      <input type="text" class="comment-author" placeholder="Your name" maxlength="30">
+                      <button class="comment-submit" data-section="friends-mock">Post Comment</button>
+                    </div>
+                  </div>
+                  
+                  <!-- Comments List (newest first) -->
+                  <div class="comments-list" id="friends-comments">
+                    <!-- Comments will be dynamically inserted here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -359,92 +1209,254 @@
       <div class="tab-pane" id="comparison-tab">
         <div class="mock-header">
           <h3>Comparison View <span class="status-indicator status-not-started">[🔴 Not Started]</span></h3>
-          <p>Compare your rankings with friends side by side.</p>
+          <p>Compare rankings with friends to see similarities and differences.</p>
         </div>
-        <div class="mock-preview">
-          <div class="mock-frame">
-            <div class="mock-device">
-              <div class="mock-app-header">
-                <div class="mock-title">Compare Rankings</div>
-                <div class="mock-button">Share</div>
-              </div>
-              
-              <div class="mock-content">
-                <div class="mock-comparison-header">
-                  <div class="mock-user">
-                    <div class="mock-avatar small"></div>
-                    <div class="mock-username">You</div>
+        
+        <!-- Two-panel layout -->
+        <div class="mock-two-panel">
+          <!-- Left panel: Current mockup (1/3 width) -->
+          <div class="mock-panel-left">
+            <div class="mock-preview">
+              <div class="mock-frame">
+                <div class="mock-device">
+                  <div class="mock-app-header">
+                    <div class="mock-title">Compare Rankings</div>
+                    <div class="mock-button">Share</div>
                   </div>
-                  <div class="mock-vs">VS</div>
-                  <div class="mock-user">
-                    <div class="mock-avatar small"></div>
-                    <div class="mock-username">SwiftieForever</div>
+                  
+                  <div class="mock-comparison-header">
+                    <div class="mock-user-column">
+                      <div class="mock-avatar small">👤</div>
+                      <div class="mock-username">You</div>
+                    </div>
+                    <div class="mock-vs">vs</div>
+                    <div class="mock-user-column">
+                      <div class="mock-avatar small">👩</div>
+                      <div class="mock-username">Sarah</div>
+                    </div>
                   </div>
-                </div>
-                
-                <div class="mock-comparison">
-                  <div class="mock-comparison-side">
-                    <div class="mock-list">
-                      <div class="mock-list-item">
-                        <div class="mock-rank">1</div>
-                        <div class="mock-item-title">Red ❤️</div>
+                  
+                  <div class="mock-tabs">
+                    <div class="mock-tab active">Albums</div>
+                    <div class="mock-tab">Artists</div>
+                    <div class="mock-tab">Songs</div>
+                  </div>
+                  
+                  <div class="mock-content">
+                    <div class="mock-stats-bar">
+                      <div class="mock-stat">
+                        <div class="mock-stat-value">75%</div>
+                        <div class="mock-stat-label">Match</div>
                       </div>
-                      <div class="mock-list-item">
-                        <div class="mock-rank">2</div>
-                        <div class="mock-item-title">Fearless 💛</div>
+                      <div class="mock-stat">
+                        <div class="mock-stat-value">12</div>
+                        <div class="mock-stat-label">Common</div>
                       </div>
-                      <div class="mock-list-item">
-                        <div class="mock-rank">3</div>
-                        <div class="mock-item-title">1989 🌃</div>
+                      <div class="mock-stat">
+                        <div class="mock-stat-value">4</div>
+                        <div class="mock-stat-label">Different</div>
                       </div>
-                      <div class="mock-list-item">
-                        <div class="mock-rank">4</div>
-                        <div class="mock-item-title">Folklore 🌲</div>
+                    </div>
+                    
+                    <div class="mock-comparison-list">
+                      <div class="mock-comparison-item match">
+                        <div class="mock-user-rank">1</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">Fearless 💛</div>
+                          <div class="mock-item-subtitle">Taylor Swift</div>
+                        </div>
+                        <div class="mock-friend-rank">2</div>
+                      </div>
+                      
+                      <div class="mock-comparison-item match">
+                        <div class="mock-user-rank">2</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">Red ❤️</div>
+                          <div class="mock-item-subtitle">Taylor Swift</div>
+                        </div>
+                        <div class="mock-friend-rank">1</div>
+                      </div>
+                      
+                      <div class="mock-comparison-item different">
+                        <div class="mock-user-rank">3</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">1989 🌃</div>
+                          <div class="mock-item-subtitle">Taylor Swift</div>
+                        </div>
+                        <div class="mock-friend-rank">5</div>
+                      </div>
+                      
+                      <div class="mock-comparison-item unique-you">
+                        <div class="mock-user-rank">4</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">Folklore 🌲</div>
+                          <div class="mock-item-subtitle">Taylor Swift</div>
+                        </div>
+                        <div class="mock-friend-rank">-</div>
+                      </div>
+                      
+                      <div class="mock-comparison-item unique-friend">
+                        <div class="mock-user-rank">-</div>
+                        <div class="mock-item-content">
+                          <div class="mock-item-title">Punisher</div>
+                          <div class="mock-item-subtitle">Phoebe Bridgers</div>
+                        </div>
+                        <div class="mock-friend-rank">3</div>
                       </div>
                     </div>
                   </div>
                   
-                  <div class="mock-comparison-side">
-                    <div class="mock-list">
-                      <div class="mock-list-item">
-                        <div class="mock-rank">1</div>
-                        <div class="mock-item-title">1989 🌃</div>
-                      </div>
-                      <div class="mock-list-item">
-                        <div class="mock-rank">2</div>
-                        <div class="mock-item-title">Lover 💕</div>
-                      </div>
-                      <div class="mock-list-item">
-                        <div class="mock-rank">3</div>
-                        <div class="mock-item-title">Reputation 🐍</div>
-                      </div>
-                      <div class="mock-list-item">
-                        <div class="mock-rank">4</div>
-                        <div class="mock-item-title">Red ❤️</div>
-                      </div>
-                    </div>
+                  <div class="mock-nav">
+                    <div class="mock-nav-item">Home</div>
+                    <div class="mock-nav-item">Search</div>
+                    <div class="mock-nav-item active">Profile</div>
                   </div>
                 </div>
-                
-                <div class="mock-stats-bar">
-                  <div class="mock-stat">
-                    <div class="mock-stat-value">25%</div>
-                    <div class="mock-stat-label">Match</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="mock-nav">
-                <div class="mock-nav-item">Home</div>
-                <div class="mock-nav-item">Friends</div>
-                <div class="mock-nav-item active">Compare</div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mock-notes">
-          <h4>Developer Notes</h4>
-          <textarea class="note-input" data-section="comparison-mock" placeholder="Add your notes about this mockup here..."></textarea>
+          
+          <!-- Right panel: Tabs section (2/3 width) -->
+          <div class="mock-panel-right">
+            <div class="detail-tabs">
+              <div class="detail-tab-nav">
+                <button class="detail-tab-button active" data-detail-tab="backend-comparison">Backend Breakdown</button>
+                <button class="detail-tab-button" data-detail-tab="alt-ui-comparison">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="notes-comparison">Developer Notes</button>
+              </div>
+              
+              <div class="detail-tab-content">
+                <!-- Backend Breakdown Tab -->
+                <div class="detail-tab-pane active" id="backend-comparison-tab">
+                  <h4>Backend Implementation Details</h4>
+                  <div class="backend-breakdown">
+                    <h5>API Endpoints</h5>
+                    <pre><code>
+GET /api/compare/{friendId}
+  - Returns comparison data between user and friend
+  - Query params: type (albums, artists, songs)
+
+GET /api/compare/{friendId}/stats
+  - Returns statistical comparison data
+  - Includes match percentage, common items, etc.
+
+POST /api/compare/share
+  - Creates a shareable comparison link
+  - Body: { friendId, type }
+                    </code></pre>
+                    
+                    <h5>Data Models</h5>
+                    <pre><code>
+ComparisonResult {
+  userId: string,
+  friendId: string,
+  type: 'albums' | 'artists' | 'songs',
+  stats: {
+    matchPercentage: number,
+    commonCount: number,
+    differentCount: number,
+    uniqueToUserCount: number,
+    uniqueToFriendCount: number
+  },
+  items: ComparisonItem[]
+}
+
+ComparisonItem {
+  id: string,
+  title: string,
+  artist: string,
+  userRank: number | null,
+  friendRank: number | null,
+  status: 'match' | 'different' | 'unique-user' | 'unique-friend'
+}
+                    </code></pre>
+                    
+                    <h5>Controllers</h5>
+                    <ul>
+                      <li><strong>ComparisonController</strong> - Handles comparison logic</li>
+                      <li><strong>ComparisonStatsController</strong> - Calculates statistics</li>
+                      <li><strong>ShareController</strong> - Manages sharing functionality</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Alternative UI Tab -->
+                <div class="detail-tab-pane" id="alt-ui-comparison-tab">
+                  <h4>Alternative UI Designs</h4>
+                  <div class="alt-ui-designs">
+                    <h5>Side-by-Side Lists</h5>
+                    <pre>
++----------------------------------+
+|  Compare Rankings           Share|
++----------------------------------+
+|    You    |    vs    |   Sarah   |
++----------------------------------+
+| [Albums] [Artists] [Songs]       |
++----------------------------------+
+| Match: 75% | Common: 12 | Diff: 4|
++----------------------------------+
+| Your List         | Sarah's List |
+| 1. Fearless       | 1. Red       |
+| 2. Red            | 2. Fearless  |
+| 3. 1989           | 3. Punisher  |
+| 4. Folklore       | 4. Evermore  |
+| 5. Evermore       | 5. 1989      |
++----------------------------------+
+|  Home     Search     Profile     |
++----------------------------------+
+                    </pre>
+                    
+                    <h5>Venn Diagram View</h5>
+                    <pre>
++----------------------------------+
+|  Compare Rankings           Share|
++----------------------------------+
+|    You    |    vs    |   Sarah   |
++----------------------------------+
+| [Albums] [Artists] [Songs]       |
++----------------------------------+
+|                                  |
+|    +-------+      +-------+      |
+|    |       |      |       |      |
+|    |  You  |      | Sarah |      |
+|    |       +------+       |      |
+|    |       |      |       |      |
+|    +-------+      +-------+      |
+|                                  |
+| Common:                          |
+| • Fearless (You: #1, Sarah: #2)  |
+| • Red (You: #2, Sarah: #1)       |
+|                                  |
+| Only You:          Only Sarah:   |
+| • Folklore (#4)    • Punisher (#3)|
++----------------------------------+
+|  Home     Search     Profile     |
++----------------------------------+
+                    </pre>
+                  </div>
+                </div>
+                
+                <!-- Developer Notes Tab -->
+                <div class="detail-tab-pane" id="notes-comparison-tab">
+                  <h4>Developer Notes</h4>
+                  
+                  <!-- Comment Form -->
+                  <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Add a comment..."></textarea>
+                    <div class="comment-form-footer">
+                      <input type="text" class="comment-author" placeholder="Your name" maxlength="30">
+                      <button class="comment-submit" data-section="comparison-mock">Post Comment</button>
+                    </div>
+                  </div>
+                  
+                  <!-- Comments List (newest first) -->
+                  <div class="comments-list" id="comparison-comments">
+                    <!-- Comments will be dynamically inserted here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

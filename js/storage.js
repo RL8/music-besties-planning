@@ -61,21 +61,23 @@ const Storage = {
     }
   },
   
-  // Save developer notes for a specific section
-  saveNote: function(sectionId, note) {
-    const notes = this.load('planning_notes', {});
-    notes[sectionId] = note;
-    return this.save('planning_notes', notes);
+  // Save note for a specific section
+  saveNote: function(sectionId, noteText) {
+    return this.save(`note_${sectionId}`, noteText);
   },
   
-  // Load developer notes for a specific section
+  // Load note for a specific section
   loadNote: function(sectionId) {
-    const notes = this.load('planning_notes', {});
-    return notes[sectionId] || '';
+    return this.load(`note_${sectionId}`, '');
   },
   
-  // Load all developer notes
-  loadAllNotes: function() {
-    return this.load('planning_notes', {});
+  // Save comments for a specific section
+  saveComments: function(sectionId, comments) {
+    return this.save(`comments_${sectionId}`, comments);
+  },
+  
+  // Load comments for a specific section
+  loadComments: function(sectionId) {
+    return this.load(`comments_${sectionId}`, []);
   }
 };
