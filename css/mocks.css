@@ -873,3 +873,229 @@
   text-align: center;
   margin: 20px 0;
 }
+
+/* Chip-based UI for Edit Rankings */
+.mock-chip-container {
+  padding: 15px 10px;
+}
+
+.mock-instruction {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.mock-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.mock-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  color: #555;
+  cursor: pointer;
+}
+
+.mock-chip-selected {
+  background-color: #e6f2ff;
+  border-color: #b3d7ff;
+  color: #0066cc;
+  font-weight: 500;
+}
+
+.mock-chip-rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: #0066cc;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+/* Updated Sidebar Panel Styles */
+.mock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mock-sidebar-panel {
+  width: 80%;
+  max-width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.mock-sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.mock-sidebar-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.mock-sidebar-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mock-sidebar-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  background-color: #f5f5f5;
+}
+
+.mock-sidebar-tab {
+  flex: 1;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mock-tab-active {
+  color: #0066cc;
+  border-bottom: 2px solid #0066cc;
+}
+
+.mock-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.mock-sidebar-section-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.mock-sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mock-sidebar-chip {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f0f7ff;
+  border: 1px solid #d0e3ff;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.mock-no-rankings-message {
+  font-size: 14px;
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Review Tab Styles */
+.mock-rating-container {
+  margin-bottom: 16px;
+}
+
+.mock-rating-label, .mock-comment-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.mock-star-rating {
+  display: flex;
+  font-size: 24px;
+  color: #ccc;
+}
+
+.mock-star {
+  cursor: pointer;
+  margin-right: 2px;
+}
+
+.mock-star-filled {
+  color: #ffc107;
+}
+
+.mock-comment-container {
+  margin-bottom: 16px;
+}
+
+.mock-comment-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.mock-save-review-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.mock-saved-message {
+  padding: 8px;
+  background-color: #e6f7e6;
+  color: #2e7d32;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+}

@@ -14,21 +14,13 @@
         
         <pre style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">
 {
-  id: String,          // Unique identifier
-  name: String,        // Display name
-  emoji: String,       // Associated emoji
-  artist: String,      // Artist name
-  year: Number,        // Release year
-  songs: [             // Array of songs in this era
-    {
-      id: String,      // Song identifier
-      name: String,    // Song name
-      duration: String // Song duration
-    }
-  ]
+  id: String,          // Unique identifier (e.g., 'taylor-swift', 'fearless')
+  name: String,        // Display name (e.g., 'Taylor Swift', 'Fearless')
+  emoji: String,       // Associated emoji (e.g., '🤠', '💛')
+  songs: [String]      // Array of song names in this era
 }</pre>
         <p style="font-size: 14px; margin-top: 10px;">
-          <strong>Storage:</strong> Defined in data.js as ERA_NAMES, ERA_EMOJIS, and ERA_SONGS
+          <strong>Storage:</strong> Defined in data.js as erasWithSongs array
         </p>
       </div>
       
@@ -39,29 +31,18 @@
         
         <pre style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px;">
 {
-  eras: [               // Ranked eras
-    {
-      id: String,       // Era identifier
-      rank: Number      // User-assigned rank (1, 2, 3, etc.)
-    }
-  ],
-  albums: [             // Ranked albums
-    {
-      id: String,       // Album identifier
-      rank: Number      // User-assigned rank
-    }
-  ],
-  songs: {              // Ranked songs by era
-    [eraId]: [          // Era identifier as key
-      {
-        id: String,     // Song identifier
-        rank: Number    // User-assigned rank
-      }
-    ]
+  // Era rankings
+  "eras": [String],    // Array of era names in ranked order
+  
+  // Individual era data
+  "[era-id]": {
+    selection: [String], // Array of song names in ranked order
+    rating: Number,      // User rating (0-5)
+    comment: String      // User review/comment
   }
 }</pre>
         <p style="font-size: 14px; margin-top: 10px;">
-          <strong>Storage:</strong> Persisted in localStorage as 'userRankings'
+          <strong>Storage:</strong> Persisted in localStorage using LOCAL_STORAGE_KEY constant
         </p>
       </div>
       

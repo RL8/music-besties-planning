@@ -47,8 +47,8 @@
               </tr>
               <tr>
                 <td>Edit Rankings</td>
-                <td><span class="status-indicator status-in-progress">🟡 In Progress</span></td>
-                <td>Interface for reordering and editing ranks</td>
+                <td><span class="status-indicator status-completed">🟢 Completed</span></td>
+                <td>Interface for ranking items by tapping to select them in order of preference</td>
                 <td>
                   <ul>
                     <li>→ Dashboard</li>
@@ -311,8 +311,8 @@ UserRanking {
       <!-- Edit Rankings Tab -->
       <div class="tab-pane" id="edit-rankings-tab">
         <div class="mock-header">
-          <h3>Edit Rankings <span class="status-indicator status-in-progress">[🟡 In Progress]</span></h3>
-          <p>Interface for ranking items by dragging and reordering.</p>
+          <h3>Edit Rankings <span class="status-indicator status-completed">[🟢 Completed]</span></h3>
+          <p>Interface for ranking items by tapping to select them in order of preference.</p>
         </div>
         
         <!-- Two-panel layout -->
@@ -336,51 +336,48 @@ UserRanking {
                   </div>
                   
                   <div class="mock-content">
-                    <div class="mock-drag-list">
-                      <div class="mock-drag-item">
-                        <div class="mock-rank-indicator">1</div>
-                        <div class="mock-item-name">Fearless <span class="mock-emoji">💛</span></div>
-                      </div>
-                      <div class="mock-drag-item">
-                        <div class="mock-rank-indicator">2</div>
-                        <div class="mock-item-name">Red <span class="mock-emoji">❤️</span></div>
-                      </div>
-                      <div class="mock-drag-item">
-                        <div class="mock-rank-indicator">3</div>
-                        <div class="mock-item-name">1989 <span class="mock-emoji">🩵</span></div>
-                      </div>
-                      <div class="mock-drag-item">
-                        <div class="mock-rank-indicator">4</div>
-                        <div class="mock-item-name">folklore <span class="mock-emoji">🩶</span></div>
-                      </div>
-                      <div class="mock-drag-item">
-                        <div class="mock-rank-indicator">5</div>
-                        <div class="mock-item-name">TTPD <span class="mock-emoji">🤍</span></div>
-                      </div>
-                      
-                      <div class="mock-unranked-header">Unranked</div>
-                      
-                      <div class="mock-drag-item mock-unranked">
-                        <div class="mock-item-name">Debut <span class="mock-emoji">💚</span></div>
-                      </div>
-                      <div class="mock-drag-item mock-unranked">
-                        <div class="mock-item-name">Speak Now <span class="mock-emoji">💜</span></div>
-                      </div>
-                      <div class="mock-drag-item mock-unranked">
-                        <div class="mock-item-name">Reputation <span class="mock-emoji">🖤</span></div>
-                      </div>
-                      <div class="mock-drag-item mock-unranked">
-                        <div class="mock-item-name">Lover <span class="mock-emoji">🩷</span></div>
-                      </div>
-                      <div class="mock-drag-item mock-unranked">
-                        <div class="mock-item-name">evermore <span class="mock-emoji">🧡</span></div>
-                      </div>
-                      <div class="mock-drag-item mock-unranked">
-                        <div class="mock-item-name">Midnights <span class="mock-emoji">💙</span></div>
+                    <div class="mock-chip-container">
+                      <p class="mock-instruction">Tap to rank. Top items are your favorites.</p>
+                      <div class="mock-chip-list">
+                        <!-- Using consistent chip structure from UI snippets -->
+                        <div class="mock-chip mock-chip-selected">
+                          <span class="mock-chip-rank">1</span>
+                          Reputation <span class="mock-emoji">🐍</span>
+                        </div>
+                        <div class="mock-chip mock-chip-selected">
+                          <span class="mock-chip-rank">2</span>
+                          Taylor Swift <span class="mock-emoji">🤠</span>
+                        </div>
+                        <div class="mock-chip mock-chip-selected">
+                          <span class="mock-chip-rank">3</span>
+                          Evermore <span class="mock-emoji">🍂</span>
+                        </div>
+                        <div class="mock-chip">
+                          Fearless <span class="mock-emoji">💛</span>
+                        </div>
+                        <div class="mock-chip">
+                          Speak Now <span class="mock-emoji">💜</span>
+                        </div>
+                        <div class="mock-chip">
+                          Red <span class="mock-emoji">❤️</span>
+                        </div>
+                        <div class="mock-chip">
+                          1989 <span class="mock-emoji">🌊</span>
+                        </div>
+                        <div class="mock-chip">
+                          Lover <span class="mock-emoji">💖</span>
+                        </div>
+                        <div class="mock-chip">
+                          Folklore <span class="mock-emoji">🌲</span>
+                        </div>
+                        <div class="mock-chip">
+                          Midnights <span class="mock-emoji">✨</span>
+                        </div>
                       </div>
                     </div>
                   </div>
 
+                  <!-- Using consistent modal structure from UI snippets -->
                   <div class="mock-save-modal hidden">
                     <div class="mock-modal-content">
                       <h3>Confirm Save</h3>
@@ -541,69 +538,58 @@ RankingHistory {
             <div class="mock-preview">
               <div class="mock-frame">
                 <div class="mock-device">
-                  <div class="mock-sidebar">
-                    <div class="mock-sidebar-header">
-                      <div class="mock-sidebar-title">
-                        <h3>Red <span class="mock-emoji">❤️</span></h3>
-                      </div>
-                      <div class="mock-sidebar-close">&times;</div>
-                    </div>
-                    
-                    <div class="mock-sidebar-tabs">
-                      <div class="mock-sidebar-tab active">Rankings</div>
-                      <div class="mock-sidebar-tab">Review & Notes</div>
-                    </div>
-                    
-                    <div class="mock-sidebar-content">
-                      <!-- Rankings Tab Content -->
-                      <div class="mock-sidebar-panel active">
-                        <div class="mock-sidebar-list">
-                          <div class="mock-sidebar-item">
-                            <div class="mock-rank-indicator">1</div>
-                            <div class="mock-item-name">All Too Well (10 Min)</div>
-                          </div>
-                          <div class="mock-sidebar-item">
-                            <div class="mock-rank-indicator">2</div>
-                            <div class="mock-item-name">State of Grace</div>
-                          </div>
-                          <div class="mock-sidebar-item mock-unranked">
-                            <div class="mock-item-name">Red</div>
-                          </div>
-                          <div class="mock-sidebar-item mock-unranked">
-                            <div class="mock-item-name">I Knew You Were Trouble</div>
-                          </div>
-                          <div class="mock-sidebar-item mock-unranked">
-                            <div class="mock-item-name">All Too Well</div>
-                          </div>
-                          <div class="mock-sidebar-item mock-unranked">
-                            <div class="mock-item-name">22</div>
-                          </div>
-                          <div class="mock-sidebar-item mock-unranked">
-                            <div class="mock-item-name">We Are Never Ever Getting Back Together</div>
-                          </div>
-                        </div>
+                  <div class="mock-overlay">
+                    <div class="mock-sidebar-panel">
+                      <div class="mock-sidebar-header">
+                        <h3 class="mock-sidebar-title">Red <span class="mock-emoji">❤️</span></h3>
+                        <button class="mock-sidebar-close">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </button>
                       </div>
                       
-                      <!-- Review Tab Content (hidden) -->
-                      <div class="mock-sidebar-panel hidden">
-                        <div class="mock-review">
-                          <div class="mock-stars">★★★★★</div>
-                          <p class="mock-comment">All time favorite album. The 10-minute version of All Too Well is a masterpiece.</p>
-                          <button class="mock-edit-review">Edit Review</button>
+                      <div class="mock-sidebar-tabs">
+                        <button class="mock-sidebar-tab mock-tab-active">Rankings</button>
+                        <button class="mock-sidebar-tab">Review</button>
+                      </div>
+                      
+                      <div class="mock-sidebar-content">
+                        <!-- Rankings Tab Content -->
+                        <div class="mock-sidebar-tab-content">
+                          <h4 class="mock-sidebar-section-title">Song Rankings</h4>
+                          <div class="mock-sidebar-list">
+                            <div class="mock-sidebar-chip">
+                              <span class="mock-chip-rank">1</span>
+                              All Too Well (10 Min)
+                            </div>
+                            <div class="mock-sidebar-chip">
+                              <span class="mock-chip-rank">2</span>
+                              State of Grace
+                            </div>
+                          </div>
+                          <p class="mock-no-rankings-message" style="display: none;">No rankings yet</p>
                         </div>
                         
-                        <div class="mock-review-form hidden">
-                          <h4>Your Rating for <span>Red</span></h4>
-                          <div class="mock-star-rating">
-                            <span>★★★★★</span>
+                        <!-- Review Tab Content (hidden) -->
+                        <div class="mock-sidebar-tab-content" style="display: none;">
+                          <h4 class="mock-sidebar-section-title">Your Review</h4>
+                          <div class="mock-rating-container">
+                            <label class="mock-rating-label">Rating</label>
+                            <div class="mock-star-rating">
+                              <span class="mock-star mock-star-filled">★</span>
+                              <span class="mock-star mock-star-filled">★</span>
+                              <span class="mock-star mock-star-filled">★</span>
+                              <span class="mock-star mock-star-filled">★</span>
+                              <span class="mock-star">★</span>
+                            </div>
                           </div>
-                          <div class="mock-rating-desc">All time fave</div>
-                          <textarea placeholder="Add a comment (optional, max 140 chars)...">All time favorite album. The 10-minute version of All Too Well is a masterpiece.</textarea>
-                          <div class="mock-char-count">85 / 140</div>
-                          <div class="mock-form-buttons">
-                            <button class="mock-cancel">Cancel</button>
-                            <button class="mock-save">Save Review</button>
+                          <div class="mock-comment-container">
+                            <label class="mock-comment-label">Comments</label>
+                            <textarea class="mock-comment-textarea" placeholder="Write your thoughts...">All time favorite album. The 10-minute version of All Too Well is a masterpiece.</textarea>
                           </div>
+                          <button class="mock-save-review-button">Save Review</button>
+                          <div class="mock-saved-message" style="display: none;">Review saved!</div>
                         </div>
                       </div>
                     </div>

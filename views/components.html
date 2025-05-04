@@ -8,68 +8,88 @@
       <h3>Core UI Components</h3>
       
       <!-- Dashboard Card Component -->
-      <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <div class="component-container">
+        <div class="component-header">
           <h4>DashboardCard.vue</h4>
           <span class="status-indicator status-completed">[🟢 Completed]</span>
         </div>
-        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Displays a card for an era or album on the dashboard</p>
+        <p class="component-description">Displays a card for an era or album on the dashboard</p>
         
-        <div style="display: flex; gap: 20px;">
-          <div style="flex: 1;">
+        <div class="flex-row">
+          <div class="flex-1">
             <h5>Preview</h5>
-            <div style="border: 1px solid #ddd; border-radius: 5px; padding: 15px; background-color: white; position: relative; margin-top: 10px;">
+            <div class="preview-container">
               <div style="position: absolute; top: 5px; left: 5px; background-color: #3498db; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px;">1</div>
-              <div style="text-align: center; padding: 10px 0;">
-                <div style="font-size: 18px; margin-bottom: 5px;">Fearless 💛</div>
-                <div style="color: #666; font-size: 12px;">Taylor Swift</div>
+              <div class="text-center" style="padding: 10px 0;">
+                <div class="text-title">Fearless <span>💛</span></div>
+                <div class="text-secondary">Taylor Swift</div>
               </div>
             </div>
           </div>
           
-          <div style="flex: 2;">
+          <div class="flex-2">
             <h5>Props</h5>
-            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
+            <table class="props-table">
               <thead>
-                <tr style="background-color: #f1f1f1;">
-                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Name</th>
-                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Type</th>
-                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Description</th>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd;">item</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">Object</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">The era or album data</td>
+                  <td>tabId</td>
+                  <td>String</td>
+                  <td>The era or album identifier</td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd;">rank</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">Number</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">The ranking position (1, 2, 3, etc.)</td>
+                  <td>title</td>
+                  <td>String</td>
+                  <td>The display name of the era or album</td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd;">tabId</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">String</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">Identifier for the tab/category</td>
+                  <td>totalCount</td>
+                  <td>Number</td>
+                  <td>Total number of items</td>
+                </tr>
+                <tr>
+                  <td>selectedCount</td>
+                  <td>Number</td>
+                  <td>Number of selected items</td>
+                </tr>
+                <tr>
+                  <td>rating</td>
+                  <td>Number</td>
+                  <td>User rating (0-5)</td>
+                </tr>
+                <tr>
+                  <td>rank</td>
+                  <td>Number</td>
+                  <td>Ranking position (-1 if unranked)</td>
+                </tr>
+                <tr>
+                  <td>emoji</td>
+                  <td>String</td>
+                  <td>Associated emoji</td>
                 </tr>
               </tbody>
             </table>
             
-            <h5 style="margin-top: 20px;">Events</h5>
-            <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
+            <h5 class="mt-10">Events</h5>
+            <table class="props-table">
               <thead>
-                <tr style="background-color: #f1f1f1;">
-                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Name</th>
-                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Payload</th>
-                  <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Description</th>
+                <tr>
+                  <th>Name</th>
+                  <th>Payload</th>
+                  <th>Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd;">open-sidebar</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">tabId</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">Emitted when card is clicked to open sidebar</td>
+                  <td>open-sidebar</td>
+                  <td>String</td>
+                  <td>Emitted when card is clicked, with tabId as payload</td>
                 </tr>
               </tbody>
             </table>
@@ -81,29 +101,25 @@
       <div style="margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px; padding: 20px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
           <h4>EditRankingsTabs.vue</h4>
-          <span class="status-indicator status-in-progress">[🟡 In Progress]</span>
+          <span class="status-indicator status-completed">[🟢 Completed]</span>
         </div>
-        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Tab interface for editing rankings across different categories</p>
+        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">Component for selecting and ranking items using a chip-based interface</p>
         
         <div style="display: flex; gap: 20px;">
           <div style="flex: 1;">
             <h5>Preview</h5>
-            <div style="border: 1px solid #ddd; border-radius: 5px; background-color: white; margin-top: 10px;">
-              <div style="display: flex; border-bottom: 1px solid #eee;">
-                <div style="padding: 10px 15px; border-bottom: 2px solid #3498db; color: #3498db; font-weight: bold;">Eras</div>
-                <div style="padding: 10px 15px;">Albums</div>
-                <div style="padding: 10px 15px;">Songs</div>
-              </div>
-              <div style="padding: 15px;">
-                <div style="margin-bottom: 10px; font-weight: bold;">Ranked</div>
-                <div style="border: 1px solid #eee; border-radius: 5px; margin-bottom: 15px;">
-                  <div style="padding: 8px 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
-                    <div style="display: flex; align-items: center;">
-                      <span style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background-color: #3498db; color: white; border-radius: 50%; font-size: 12px; margin-right: 10px;">1</span>
-                      <span>Fearless 💛</span>
-                    </div>
-                    <span style="color: #e74c3c; cursor: pointer;">✕</span>
-                  </div>
+            <div style="border: 1px solid #ddd; border-radius: 5px; padding: 15px; background-color: white; margin-top: 10px;">
+              <div style="display: flex; gap: 8px; margin-bottom: 10px; overflow-x: auto; padding-bottom: 5px;">
+                <div style="padding: 6px 12px; background-color: #e6f2ff; border: 1px solid #b3d7ff; border-radius: 20px; color: #0066cc; font-size: 14px; white-space: nowrap;">
+                  <span style="display: inline-block; width: 20px; height: 20px; background-color: #0066cc; color: white; border-radius: 50%; text-align: center; margin-right: 5px; font-size: 12px; line-height: 20px;">1</span>
+                  Reputation 🐍
+                </div>
+                <div style="padding: 6px 12px; background-color: #e6f2ff; border: 1px solid #b3d7ff; border-radius: 20px; color: #0066cc; font-size: 14px; white-space: nowrap;">
+                  <span style="display: inline-block; width: 20px; height: 20px; background-color: #0066cc; color: white; border-radius: 50%; text-align: center; margin-right: 5px; font-size: 12px; line-height: 20px;">2</span>
+                  Fearless 💛
+                </div>
+                <div style="padding: 6px 12px; background-color: white; border: 1px solid #e0e0e0; border-radius: 20px; color: #555; font-size: 14px; white-space: nowrap;">
+                  Red ❤️
                 </div>
               </div>
             </div>
@@ -121,19 +137,24 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd;">initialTab</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">activeTabId</td>
                   <td style="padding: 8px; border: 1px solid #ddd;">String</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">The initially selected tab</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">ID of the currently active tab</td>
                 </tr>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd;">userRankings</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">currentSelectionOrders</td>
                   <td style="padding: 8px; border: 1px solid #ddd;">Object</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">Current user rankings data</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Object containing current selections for each tab</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px; border: 1px solid #ddd;">savedData</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Object</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Saved user data including rankings</td>
                 </tr>
               </tbody>
             </table>
             
-            <h5 style="margin-top: 20px;">Events</h5>
+            <h5 style="margin-top: 15px;">Events</h5>
             <table style="width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px;">
               <thead>
                 <tr style="background-color: #f1f1f1;">
@@ -144,14 +165,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd;">save</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">Object</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">Updated rankings data</td>
-                </tr>
-                <tr>
-                  <td style="padding: 8px; border: 1px solid #ddd;">cancel</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">None</td>
-                  <td style="padding: 8px; border: 1px solid #ddd;">Cancel editing</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">switch-tab</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">String</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">Emitted when user switches tabs</td>
                 </tr>
               </tbody>
             </table>
