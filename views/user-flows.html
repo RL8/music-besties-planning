@@ -1,0 +1,132 @@
+<div class="content-section-wrapper">
+  <h1>User Flows</h1>
+  <div class="content-section">
+    <h2>Overview</h2>
+    <p>Visual representations of key user journeys through the Music Besties app.</p>
+    
+    <div class="user-flow-container">
+      <h3 class="flow-title">Album Ranking Flow</h3>
+      <p class="flow-description">This flow shows how users create and edit their album rankings</p>
+      
+      <div class="flow-diagram">
+        <!-- Start Node -->
+        <div class="flow-node start-node">
+          <div class="node-content">Start</div>
+        </div>
+        
+        <!-- Arrow -->
+        <div class="flow-arrow">
+          <div class="arrow-line"></div>
+          <div class="arrow-head"></div>
+        </div>
+        
+        <!-- Screen Node -->
+        <div class="flow-node screen-node">
+          <div class="node-content">
+            <div class="node-title">Dashboard</div>
+            <div class="node-description">User's main view with era cards</div>
+          </div>
+        </div>
+        
+        <!-- Arrow with Action -->
+        <div class="flow-arrow">
+          <div class="arrow-line"></div>
+          <div class="arrow-head"></div>
+          <div class="arrow-label">Tap "Edit Rankings"</div>
+        </div>
+        
+        <!-- Screen Node -->
+        <div class="flow-node screen-node">
+          <div class="node-content">
+            <div class="node-title">Edit Rankings</div>
+            <div class="node-description">Chip-based UI for ranking albums</div>
+          </div>
+        </div>
+        
+        <!-- Decision Node Example -->
+        <div class="flow-arrow">
+          <div class="arrow-line"></div>
+          <div class="arrow-head"></div>
+        </div>
+        
+        <div class="flow-node decision-node">
+          <div class="node-content">Save Rankings?</div>
+        </div>
+        
+        <!-- Multiple paths from decision -->
+        <div class="flow-branches">
+          <!-- Yes path -->
+          <div class="flow-branch">
+            <div class="flow-arrow">
+              <div class="arrow-line"></div>
+              <div class="arrow-head"></div>
+              <div class="arrow-label">Yes</div>
+            </div>
+            
+            <div class="flow-node screen-node">
+              <div class="node-content">
+                <div class="node-title">Confirmation Dialog</div>
+                <div class="node-description">Asks user to confirm save</div>
+              </div>
+            </div>
+            
+            <div class="flow-arrow">
+              <div class="arrow-line"></div>
+              <div class="arrow-head"></div>
+              <div class="arrow-label">Confirm</div>
+            </div>
+            
+            <div class="flow-node screen-node">
+              <div class="node-content">
+                <div class="node-title">Dashboard (Updated)</div>
+                <div class="node-description">Shows updated rankings</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- No path -->
+          <div class="flow-branch">
+            <div class="flow-arrow">
+              <div class="arrow-line"></div>
+              <div class="arrow-head"></div>
+              <div class="arrow-label">No</div>
+            </div>
+            
+            <div class="flow-node screen-node">
+              <div class="node-content">
+                <div class="node-title">Dashboard (Unchanged)</div>
+                <div class="node-description">Rankings remain unchanged</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- End Node -->
+        <div class="flow-arrow">
+          <div class="arrow-line"></div>
+          <div class="arrow-head"></div>
+        </div>
+        
+        <div class="flow-node end-node">
+          <div class="node-content">End</div>
+        </div>
+      </div>
+      
+      <div class="flow-notes">
+        <h4>Key Interactions</h4>
+        <ul>
+          <li><strong>Ranking Chips:</strong> User taps on unranked chips to add them to their ranked list</li>
+          <li><strong>Removing Rankings:</strong> User can tap "Remove" on a ranked chip to remove it from their rankings</li>
+          <li><strong>Save Confirmation:</strong> System asks for confirmation before saving to prevent accidental changes</li>
+        </ul>
+        
+        <h4>Edge Cases</h4>
+        <ul>
+          <li><strong>No Rankings Selected:</strong> Save button is disabled until at least one album is ranked</li>
+          <li><strong>Network Issues:</strong> Rankings are saved to localStorage to prevent data loss</li>
+          <li><strong>Canceling Midway:</strong> User can exit without saving, preserving previous rankings</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

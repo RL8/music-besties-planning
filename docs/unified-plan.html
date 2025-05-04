@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Besties - Unified Planning</title>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f5f5f5;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2, h3, h4 {
+      color: #2c3e50;
+      margin-top: 0;
+    }
+    
+    /* Header */
+    .header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .project-title {
+      margin: 0;
+      font-size: 28px;
+    }
+    .project-description {
+      margin: 10px 0 0;
+      font-weight: normal;
+      opacity: 0.8;
+    }
+    
+    /* Navigation */
+    .nav-tabs {
+      display: flex;
+      background-color: white;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .nav-tab {
+      flex: 1;
+      text-align: center;
+      padding: 15px;
+      cursor: pointer;
+      background-color: #f8f9fa;
+      border: none;
+      transition: background-color 0.2s;
+    }
+    .nav-tab.active {
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+    }
+    
+    /* Content Sections */
+    .content-section {
+      display: none;
+      background-color: white;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .content-section.active {
+      display: block;
+    }
+    
+    /* Overview Section */
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .overview-card {
+      background-color: white;
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .overview-card h3 {
+      margin-top: 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    
+    /* Story Map Styles */
+    .story-map {
+      overflow-x: auto;
+    }
+    .backbone {
+      display: flex;
+      gap: 15px;
+      padding-bottom: 10px;
+      min-width: max-content;
+    }
+    .activity {
+      min-width: 180px;
+      text-align: center;
+    }
+    .activity-header {
+      background-color: #4a6fa5;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .tasks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .task {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .priority-high {
+      background-color: #ffecec;
+      border-left: 4px solid #e74c3c;
+    }
+    .priority-medium {
+      background-color: #fff9ec;
+      border-left: 4px solid #f39c12;
+    }
+    .priority-low {
+      background-color: #ecf8ff;
+      border-left: 4px solid #3498db;
+    }
+    
+    /* UI Flow Styles */
+    .ui-flow {
+      overflow-x: auto;
+      padding: 20px 0;
+    }
+    .ui-flow svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .screen {
+      fill: white;
+      stroke: #666;
+      stroke-width: 2;
+    }
+    .core {
+      fill: #e3f2fd;
+    }
+    .social {
+      fill: #fff8e1;
+    }
+    .discovery {
+      fill: #f1f8e9;
+    }
+    .arrow {
+      stroke: #666;
+      stroke-width: 2;
+      fill: none;
+    }
+    .arrow-head {
+      fill: #666;
+    }
+    text {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
+      text-anchor: middle;
+    }
+    .screen-title {
+      font-weight: bold;
+    }
+    .arrow-label {
+      font-size: 10px;
+      fill: #666;
+    }
+    
+    /* Legend */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-color {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+    }
+    
+    /* Roadmap Styles */
+    .roadmap {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .phase {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+    }
+    .phase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .phase-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .phase-timeline {
+      font-size: 14px;
+      color: #666;
+      background-color: #eee;
+      padding: 5px 10px;
+      border-radius: 15px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .feature {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      background-color: white;
+    }
+    .feature-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .feature-title {
+      font-weight: bold;
+    }
+    .feature-priority {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      color: white;
+    }
+    
+    /* Wireframe Styles */
+    .wireframes-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .wireframe-card {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      background-color: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .wireframe-card.overview-card {
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+    .wireframe-card.overview-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .wireframe-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #eee;
+      color: #2c3e50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .wireframe-description {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .wireframe-preview {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      min-height: 300px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .wireframe-preview.mini-preview {
+      min-height: 100px;
+      max-height: 100px;
+    }
+    .wireframe-note {
+      font-size: 12px;
+      color: #666;
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+    
+    /* Wireframe Navigation */
+    .wireframe-overview {
+      display: block;
+    }
+    .wireframe-detail {
+      display: none;
+    }
+    .wireframe-detail.active {
+      display: block;
+    }
+    .wireframe-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .wireframe-nav-back {
+      color: #3498db;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .wireframe-nav-back:before {
+      content: "←";
+      margin-right: 5px;
+    }
+    .wireframe-nav-pagination {
+      display: flex;
+      align-items: center;
+    }
+    .wireframe-nav-pagination-count {
+      margin: 0 10px;
+      font-size: 14px;
+      color: #666;
+    }
+    .wireframe-nav-btn {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #f8f9fa;
+      cursor: pointer;
+      font-size: 12px;
+      color: #3498db;
+    }
+    .wireframe-nav-btn:hover {
+      background-color: #e9ecef;
+    }
+    .wireframe-nav-btn:disabled {
+      color: #aaa;
+      cursor: not-allowed;
+    }
+    
+    /* Quick Navigation */
+    .wireframe-quick-nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+    .wireframe-quick-nav-item {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 5px;
+      cursor: pointer;
+      position: relative;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .wireframe-quick-nav-item:hover {
+      background-color: #e9ecef;
+    }
+    .wireframe-quick-nav-item.active {
+      background-color: #e3f2fd;
+      border-color: #3498db;
+    }
+    .wireframe-quick-nav-item .status-indicator {
+      position: absolute;
+      bottom: -5px;
+      right: -5px;
+      margin: 0;
+      font-size: 10px;
+    }
+    
+    /* Status Indicators */
+    .status-indicator {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 12px;
+    }
+    .status-not-started {
+      color: #e74c3c;
+    }
+    .status-in-progress {
+      color: #f39c12;
+    }
+    .status-completed {
+      color: #2ecc71;
+    }
+    
+    /* Component Details */
+    .component-details {
+      font-size: 12px;
+      background-color: #f8f9fa;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      padding: 10px;
+      margin-top: 10px;
+      display: none;
+    }
+    .component-details.active {
+      display: block;
+    }
+    .details-toggle {
+      font-size: 12px;
+      color: #3498db;
+      cursor: pointer;
+      margin-top: 5px;
+      display: inline-block;
+    }
+    
+    /* Developer Notes */
+    .dev-notes {
+      margin-top: 10px;
+    }
+    .dev-notes textarea {
+      width: 100%;
+      min-height: 60px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      font-size: 12px;
+      font-family: inherit;
+    }
+    .dev-notes-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 5px;
+    }
+    .dev-notes-actions button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    
+    /* Alternative View */
+    .alt-view {
+      font-family: monospace;
+      white-space: pre;
+      font-size: 12px;
+      background-color: #f8f9fa;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    
+    /* Mock UI Components */
+    .mock-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      border-bottom: 1px solid #eee;
+      background-color: #f8f9fa;
+    }
+    .mock-title {
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .mock-button {
+      padding: 5px 10px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .mock-tabs {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      background-color: #f8f9fa;
+    }
+    .mock-tab {
+      padding: 8px 15px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .mock-tab.active {
+      border-bottom: 2px solid #3498db;
+      color: #3498db;
+      font-weight: bold;
+    }
+    .mock-list {
+      margin-top: 10px;
+    }
+    .mock-list-item {
+      padding: 8px 10px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .mock-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      margin-right: 10px;
+    }
+    .mock-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .mock-card {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 10px;
+      position: relative;
+    }
+    .mock-card-badge {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 class="project-title">Music Besties - MVP Planning</h1>
+    <p class="project-description">A unified approach to planning our app development</p>
+  </div>
+  
+  <div class="container">
+    <!-- Overview Section -->
+    <div class="overview">
+      <div class="overview-card">
+        <h3>Project Summary</h3>
+        <p>Music Besties is a web application for ranking and reviewing music eras and songs. The app allows users to create personalized rankings, write reviews, and eventually connect with friends to compare music preferences.</p>
+      </div>
+      <div class="overview-card">
+        <h3>Current Progress</h3>
+        <p>The app has been converted to Vue 3 with a modular file structure. Basic ranking functionality is implemented with local storage for data persistence.</p>
+      </div>
+      <div class="overview-card">
+        <h3>Next Steps</h3>
+        <p>Implement user accounts, enhance the ranking system, and begin developing social features to create a meaningful MVP.</p>
+      </div>
+    </div>
+    
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showSection('story-map')">User Story Map</button>
+      <button class="nav-tab" onclick="showSection('ui-flow')">UI Flow</button>
+      <button class="nav-tab" onclick="showSection('wireframes')">Page Wireframes</button>
+      <button class="nav-tab" onclick="showSection('roadmap')">Development Roadmap</button>
+    </div>
+    
+    <!-- Story Map Section -->
+    <div id="story-map" class="content-section active">
+      <h2>User Story Map</h2>
+      
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #e74c3c;"></div>
+          <span>Must Have (MVP)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #f39c12;"></div>
+          <span>Should Have</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #3498db;"></div>
+          <span>Nice to Have</span>
+        </div>
+      </div>
+      
+      <div class="story-map">
+        <div class="backbone">
+          <!-- User Activity 1 -->
+          <div class="activity">
+            <div class="activity-header">Discover Music</div>
+            <div class="tasks">
+              <div class="task priority-high">Browse Eras/Albums</div>
+              <div class="task priority-medium">Search for Music</div>
+              <div class="task priority-low">Get Recommendations</div>
+            </div>
+          </div>
+          
+          <!-- User Activity 2 -->
+          <div class="activity">
+            <div class="activity-header">Create Rankings</div>
+            <div class="tasks">
+              <div class="task priority-high">Rank Eras</div>
+              <div class="task priority-high">Rank Songs</div>
+              <div class="task priority-medium">Add Comments</div>
+              <div class="task priority-medium">Rate Albums</div>
+            </div>
+          </div>
+          
+          <!-- User Activity 3 -->
+          <div class="activity">
+            <div class="activity-header">Review Rankings</div>
+            <div class="tasks">
+              <div class="task priority-high">View Dashboard</div>
+              <div class="task priority-high">See Details</div>
+              <div class="task priority-medium">Edit Previous Rankings</div>
+            </div>
+          </div>
+          
+          <!-- User Activity 4 -->
+          <div class="activity">
+            <div class="activity-header">Manage Profile</div>
+            <div class="tasks">
+              <div class="task priority-high">Create Account</div>
+              <div class="task priority-medium">Customize Profile</div>
+              <div class="task priority-low">Set Preferences</div>
+            </div>
+          </div>
+          
+          <!-- User Activity 5 -->
+          <div class="activity">
+            <div class="activity-header">Connect Socially</div>
+            <div class="tasks">
+              <div class="task priority-medium">Find Friends</div>
+              <div class="task priority-medium">Share Rankings</div>
+              <div class="task priority-low">Compare Rankings</div>
+              <div class="task priority-low">Comment on Others</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- UI Flow Section -->
+    <div id="ui-flow" class="content-section">
+      <h2>UI Flow Diagram</h2>
+      
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #e3f2fd;"></div>
+          <span>Core Experience</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #fff8e1;"></div>
+          <span>Social Features</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #f1f8e9;"></div>
+          <span>Discovery Features</span>
+        </div>
+      </div>
+      
+      <div class="ui-flow">
+        <svg width="800" height="600" viewBox="0 0 800 600">
+          <!-- Core Experience Screens -->
+          <rect x="350" y="50" width="120" height="80" rx="5" class="screen core" />
+          <text x="410" y="80" class="screen-title">Dashboard</text>
+          <text x="410" y="100">Main View</text>
+          
+          <rect x="150" y="200" width="120" height="80" rx="5" class="screen core" />
+          <text x="210" y="230" class="screen-title">Edit Rankings</text>
+          <text x="210" y="250">Rank Items</text>
+          
+          <rect x="350" y="200" width="120" height="80" rx="5" class="screen core" />
+          <text x="410" y="230" class="screen-title">Sidebar</text>
+          <text x="410" y="250">View Details</text>
+          
+          <rect x="550" y="200" width="120" height="80" rx="5" class="screen core" />
+          <text x="610" y="230" class="screen-title">User Profile</text>
+          <text x="610" y="250">Account Info</text>
+          
+          <!-- Social Feature Screens -->
+          <rect x="150" y="350" width="120" height="80" rx="5" class="screen social" />
+          <text x="210" y="380" class="screen-title">Friends List</text>
+          <text x="210" y="400">Connections</text>
+          
+          <rect x="350" y="350" width="120" height="80" rx="5" class="screen social" />
+          <text x="410" y="380" class="screen-title">Friend Profile</text>
+          <text x="410" y="400">View Rankings</text>
+          
+          <rect x="550" y="350" width="120" height="80" rx="5" class="screen social" />
+          <text x="610" y="380" class="screen-title">Comparison</text>
+          <text x="610" y="400">Side by Side</text>
+          
+          <!-- Discovery Feature Screens -->
+          <rect x="150" y="500" width="120" height="80" rx="5" class="screen discovery" />
+          <text x="210" y="530" class="screen-title">Search</text>
+          <text x="210" y="550">Find Music</text>
+          
+          <rect x="350" y="500" width="120" height="80" rx="5" class="screen discovery" />
+          <text x="410" y="530" class="screen-title">Recommendations</text>
+          <text x="410" y="550">Suggested Items</text>
+          
+          <rect x="550" y="500" width="120" height="80" rx="5" class="screen discovery" />
+          <text x="610" y="530" class="screen-title">Trending</text>
+          <text x="610" y="550">Popular Rankings</text>
+          
+          <!-- Arrows -->
+          <!-- Dashboard to other core screens -->
+          <path d="M 350 90 L 210 90 L 210 200" class="arrow" />
+          <polygon points="210,200 205,190 215,190" class="arrow-head" />
+          <text x="260" y="80" class="arrow-label">Edit</text>
+          
+          <path d="M 410 130 L 410 200" class="arrow" />
+          <polygon points="410,200 405,190 415,190" class="arrow-head" />
+          <text x="425" y="170" class="arrow-label">View Details</text>
+          
+          <path d="M 470 90 L 610 90 L 610 200" class="arrow" />
+          <polygon points="610,200 605,190 615,190" class="arrow-head" />
+          <text x="560" y="80" class="arrow-label">Profile</text>
+          
+          <!-- Core to Social -->
+          <path d="M 210 280 L 210 350" class="arrow" />
+          <polygon points="210,350 205,340 215,340" class="arrow-head" />
+          
+          <path d="M 610 280 L 610 350" class="arrow" />
+          <polygon points="610,350 605,340 615,340" class="arrow-head" />
+          
+          <!-- Social Connections -->
+          <path d="M 270 390 L 350 390" class="arrow" />
+          <polygon points="350,390 340,385 340,395" class="arrow-head" />
+          
+          <path d="M 470 390 L 550 390" class="arrow" />
+          <polygon points="550,390 540,385 540,395" class="arrow-head" />
+          
+          <!-- Social to Discovery -->
+          <path d="M 210 430 L 210 500" class="arrow" />
+          <polygon points="210,500 205,490 215,490" class="arrow-head" />
+          
+          <!-- Discovery Connections -->
+          <path d="M 270 530 L 350 530" class="arrow" />
+          <polygon points="350,530 340,525 340,535" class="arrow-head" />
+          
+          <path d="M 470 530 L 550 530" class="arrow" />
+          <polygon points="550,530 540,525 540,535" class="arrow-head" />
+          
+          <!-- Back to Dashboard -->
+          <path d="M 350 390 C 300 390 300 150 350 90" class="arrow" />
+          <polygon points="350,90 345,100 355,100" class="arrow-head" transform="rotate(90 350 90)" />
+          <text x="280" y="250" class="arrow-label">Home</text>
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Wireframes Section -->
+    <div id="wireframes" class="content-section">
+      <h2>Page Wireframes</h2>
+      <p>Detailed wireframes for each screen in the application.</p>
+      
+      <!-- Wireframe Overview (Grid View) -->
+      <div class="wireframe-overview">
+        <div class="wireframes-container">
+          <!-- Dashboard Overview Card -->
+          <div class="wireframe-card overview-card" data-page="dashboard">
+            <div class="wireframe-title">
+              Dashboard
+              <span class="status-indicator status-completed">[🟢]</span>
+            </div>
+            <div class="wireframe-description">Main view showing all rankings</div>
+            <div class="wireframe-preview mini-preview">
+              <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                <div style="width: 45%; height: 40px; background-color: #e3f2fd; border-radius: 3px;"></div>
+                <div style="width: 45%; height: 40px; background-color: #e3f2fd; border-radius: 3px;"></div>
+                <div style="width: 45%; height: 40px; background-color: #e3f2fd; border-radius: 3px;"></div>
+                <div style="width: 45%; height: 40px; background-color: #e3f2fd; border-radius: 3px;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Edit Rankings Overview Card -->
+          <div class="wireframe-card overview-card" data-page="edit-rankings">
+            <div class="wireframe-title">
+              Edit Rankings
+              <span class="status-indicator status-in-progress">[🟡]</span>
+            </div>
+            <div class="wireframe-description">Interface for ranking items</div>
+            <div class="wireframe-preview mini-preview">
+              <div style="display: flex; flex-direction: column; gap: 5px;">
+                <div style="height: 20px; background-color: #e3f2fd; border-radius: 3px;"></div>
+                <div style="height: 20px; background-color: #e3f2fd; border-radius: 3px;"></div>
+                <div style="height: 20px; background-color: #f5f5f5; border-radius: 3px;"></div>
+                <div style="height: 20px; background-color: #f5f5f5; border-radius: 3px;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sidebar Detail Overview Card -->
+          <div class="wireframe-card overview-card" data-page="sidebar">
+            <div class="wireframe-title">
+              Sidebar Detail
+              <span class="status-indicator status-completed">[🟢]</span>
+            </div>
+            <div class="wireframe-description">Overlay panel with details</div>
+            <div class="wireframe-preview mini-preview">
+              <div style="display: flex; height: 80px;">
+                <div style="width: 30%; background-color: rgba(0,0,0,0.1);"></div>
+                <div style="width: 70%; background-color: white; border-left: 1px solid #ddd;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- User Profile Overview Card -->
+          <div class="wireframe-card overview-card" data-page="profile">
+            <div class="wireframe-title">
+              User Profile
+              <span class="status-indicator status-not-started">[🔴]</span>
+            </div>
+            <div class="wireframe-description">Account information and settings</div>
+            <div class="wireframe-preview mini-preview">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #e3f2fd;"></div>
+                <div style="width: 80%; height: 10px; background-color: #f5f5f5; border-radius: 3px;"></div>
+                <div style="width: 80%; height: 10px; background-color: #f5f5f5; border-radius: 3px;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Friends List Overview Card -->
+          <div class="wireframe-card overview-card" data-page="friends">
+            <div class="wireframe-title">
+              Friends List
+              <span class="status-indicator status-not-started">[🔴]</span>
+            </div>
+            <div class="wireframe-description">View and manage connections</div>
+            <div class="wireframe-preview mini-preview">
+              <div style="display: flex; flex-direction: column; gap: 5px;">
+                <div style="height: 20px; background-color: #f5f5f5; border-radius: 3px;"></div>
+                <div style="height: 20px; background-color: #f5f5f5; border-radius: 3px;"></div>
+                <div style="height: 20px; background-color: #f5f5f5; border-radius: 3px;"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Comparison View Overview Card -->
+          <div class="wireframe-card overview-card" data-page="comparison">
+            <div class="wireframe-title">
+              Comparison View
+              <span class="status-indicator status-not-started">[🔴]</span>
+            </div>
+            <div class="wireframe-description">Compare rankings with friends</div>
+            <div class="wireframe-preview mini-preview">
+              <div style="display: flex; gap: 5px;">
+                <div style="width: 48%; display: flex; flex-direction: column; gap: 3px;">
+                  <div style="height: 15px; background-color: #e3f2fd; border-radius: 2px;"></div>
+                  <div style="height: 15px; background-color: #e3f2fd; border-radius: 2px;"></div>
+                </div>
+                <div style="width: 48%; display: flex; flex-direction: column; gap: 3px;">
+                  <div style="height: 15px; background-color: #f5f5f5; border-radius: 2px;"></div>
+                  <div style="height: 15px; background-color: #f5f5f5; border-radius: 2px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Wireframe Detail Views -->
+      <!-- Dashboard Detail -->
+      <div class="wireframe-detail" id="dashboard-detail">
+        <div class="wireframe-nav">
+          <div class="wireframe-nav-back">Back to Overview</div>
+          <div class="wireframe-nav-pagination">
+            <button class="wireframe-nav-btn prev" disabled>Previous</button>
+            <div class="wireframe-nav-pagination-count">1/6</div>
+            <button class="wireframe-nav-btn next">Next</button>
+          </div>
+        </div>
+        
+        <div class="wireframe-card">
+          <div class="wireframe-title">
+            Dashboard
+            <span class="status-indicator status-completed">[🟢 Completed]</span>
+          </div>
+          <div class="wireframe-description">Main view showing all rankings across different categories.</div>
+          <div class="wireframe-preview">
+            <div class="mock-header">
+              <div class="mock-title">My Rankings</div>
+              <div class="mock-button">Edit</div>
+            </div>
+            
+            <div style="padding: 15px;">
+              <div class="mock-grid">
+                <div class="mock-card">
+                  <div style="text-align: center; padding: 10px 0;">
+                    <div style="font-size: 18px; margin-bottom: 5px;">Fearless 💛</div>
+                    <div style="color: #666; font-size: 12px;">Taylor Swift</div>
+                  </div>
+                  <div style="position: absolute; top: 5px; left: 5px; background-color: #3498db; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px;">1</div>
+                </div>
+                
+                <div class="mock-card">
+                  <div style="text-align: center; padding: 10px 0;">
+                    <div style="font-size: 18px; margin-bottom: 5px;">Red ❤️</div>
+                    <div style="color: #666; font-size: 12px;">Taylor Swift</div>
+                  </div>
+                  <div style="position: absolute; top: 5px; left: 5px; background-color: #3498db; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px;">2</div>
+                </div>
+                
+                <div class="mock-card">
+                  <div style="text-align: center; padding: 10px 0;">
+                    <div style="font-size: 18px; margin-bottom: 5px;">1989 🌊</div>
+                    <div style="color: #666; font-size: 12px;">Taylor Swift</div>
+                  </div>
+                  <div style="position: absolute; top: 5px; left: 5px; background-color: #3498db; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px;">3</div>
+                </div>
+                
+                <div class="mock-card">
+                  <div style="text-align: center; padding: 10px 0;">
+                    <div style="font-size: 18px; margin-bottom: 5px;">Reputation 🐍</div>
+                    <div style="color: #666; font-size: 12px;">Taylor Swift</div>
+                  </div>
+                  <div style="position: absolute; top: 5px; left: 5px; background-color: #3498db; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px;">4</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-note">Central hub that provides an overview of all rankings with quick access to detailed views.</div>
+          
+          <div class="alt-view">
+Alternative Dashboard Layout:
++---------------------+
+| 🎵 Taylor Swift     |
+|   #1 Red     ❤️     |
+|   #2 Fearless 💛    |
+|   #3 1989    🌊     |
++---------------------+
+| 🎸 Other Artist     |
+|   [Not Ranked Yet]  |
++---------------------+
+          </div>
+          
+          <span class="details-toggle">Show Component Details</span>
+          <div class="component-details">
+            <strong>Data Sources:</strong>
+            <ul>
+              <li>data.js - ERA_NAMES, ERA_EMOJIS, user rankings</li>
+              <li>localStorage - Persisted user rankings</li>
+            </ul>
+            <strong>Components:</strong>
+            <ul>
+              <li>DashboardCard.vue - Card display for each era</li>
+              <li>RankIndicator - Shows ranking position</li>
+            </ul>
+            <strong>State Requirements:</strong>
+            <ul>
+              <li>userRankings - Current user's rankings</li>
+              <li>selectedEra - Currently selected era for detail view</li>
+            </ul>
+          </div>
+          
+          <div class="dev-notes">
+            <textarea id="note-dashboard" placeholder="Add your developer notes here..."></textarea>
+            <div class="dev-notes-actions">
+              <button onclick="saveDevNote('dashboard')">Save Note</button>
+            </div>
+          </div>
+          
+          <div class="wireframe-quick-nav">
+            <div class="wireframe-quick-nav-item active">D<span class="status-indicator status-completed">🟢</span></div>
+            <div class="wireframe-quick-nav-item">E<span class="status-indicator status-in-progress">🟡</span></div>
+            <div class="wireframe-quick-nav-item">S<span class="status-indicator status-completed">🟢</span></div>
+            <div class="wireframe-quick-nav-item">P<span class="status-indicator status-not-started">🔴</span></div>
+            <div class="wireframe-quick-nav-item">F<span class="status-indicator status-not-started">🔴</span></div>
+            <div class="wireframe-quick-nav-item">C<span class="status-indicator status-not-started">🔴</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Edit Rankings Detail -->
+      <div class="wireframe-detail" id="edit-rankings-detail">
+        <div class="wireframe-nav">
+          <div class="wireframe-nav-back">Back to Overview</div>
+          <div class="wireframe-nav-pagination">
+            <button class="wireframe-nav-btn prev">Previous</button>
+            <div class="wireframe-nav-pagination-count">2/6</div>
+            <button class="wireframe-nav-btn next">Next</button>
+          </div>
+        </div>
+        
+        <div class="wireframe-card">
+          <div class="wireframe-title">
+            Edit Rankings
+            <span class="status-indicator status-in-progress">[🟡 In Progress]</span>
+          </div>
+          <div class="wireframe-description">Interface for creating and editing rankings for songs, albums, or eras.</div>
+          <div class="wireframe-preview">
+            <div class="mock-header">
+              <div class="mock-button" style="background-color: #e74c3c;">Cancel</div>
+              <div class="mock-title">Edit Rankings</div>
+              <div class="mock-button" style="background-color: #2ecc71;">Save</div>
+            </div>
+            
+            <div class="mock-tabs">
+              <div class="mock-tab active">Eras</div>
+              <div class="mock-tab">Albums</div>
+              <div class="mock-tab">Songs</div>
+            </div>
+            
+            <div style="padding: 15px;">
+              <div style="margin-bottom: 20px;">
+                <div style="font-weight: bold; margin-bottom: 10px;">Ranked</div>
+                <div class="mock-list">
+                  <div class="mock-list-item">
+                    <div style="display: flex; align-items: center;">
+                      <div class="mock-badge">1</div>
+                      <div>Fearless 💛</div>
+                    </div>
+                    <div style="color: #e74c3c; cursor: pointer;">✕</div>
+                  </div>
+                  <div class="mock-list-item">
+                    <div style="display: flex; align-items: center;">
+                      <div class="mock-badge">2</div>
+                      <div>Red ❤️</div>
+                    </div>
+                    <div style="color: #e74c3c; cursor: pointer;">✕</div>
+                  </div>
+                  <div class="mock-list-item">
+                    <div style="display: flex; align-items: center;">
+                      <div class="mock-badge">3</div>
+                      <div>1989 🌊</div>
+                    </div>
+                    <div style="color: #e74c3c; cursor: pointer;">✕</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <div style="font-weight: bold; margin-bottom: 10px;">Unranked</div>
+                <div class="mock-list">
+                  <div class="mock-list-item">
+                    <div>Reputation 🐍</div>
+                    <div style="color: #3498db; cursor: pointer;">+</div>
+                  </div>
+                  <div class="mock-list-item">
+                    <div>Lover 💕</div>
+                    <div style="color: #3498db; cursor: pointer;">+</div>
+                  </div>
+                  <div class="mock-list-item">
+                    <div>Folklore 🌲</div>
+                    <div style="color: #3498db; cursor: pointer;">+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-note">Simple drag-and-drop interface for ranking items, with ranked items appearing at the top.</div>
+          
+          <div class="alt-view">
+Alternative Edit Rankings:
++-------------------+
+| [Search ________] |
+|                   |
+| RANKED:           |
+| 1. ⭐ Item One    |
+| 2. ⭐ Item Two    |
+|                   |
+| UNRANKED:         |
+| □ Item Three      |
+| □ Item Four       |
++-------------------+
+          </div>
+          
+          <span class="details-toggle">Show Component Details</span>
+          <div class="component-details">
+            <strong>Data Sources:</strong>
+            <ul>
+              <li>data.js - ERA_SONGS, ALBUMS, song lists</li>
+              <li>localStorage - Saved rankings</li>
+            </ul>
+            <strong>Components:</strong>
+            <ul>
+              <li>EditRankingsTabs.vue - Tab navigation</li>
+              <li>RankingsList - Sortable list of items</li>
+              <li>RankBadge - Displays current rank</li>
+            </ul>
+            <strong>State Requirements:</strong>
+            <ul>
+              <li>currentTab - Active category (songs, albums, eras)</li>
+              <li>rankedItems - Items with assigned rankings</li>
+              <li>unrankedItems - Items without rankings</li>
+            </ul>
+          </div>
+          
+          <div class="dev-notes">
+            <textarea id="note-edit-rankings" placeholder="Add your developer notes here..."></textarea>
+            <div class="dev-notes-actions">
+              <button onclick="saveDevNote('edit-rankings')">Save Note</button>
+            </div>
+          </div>
+          
+          <div class="wireframe-quick-nav">
+            <div class="wireframe-quick-nav-item">D<span class="status-indicator status-completed">🟢</span></div>
+            <div class="wireframe-quick-nav-item active">E<span class="status-indicator status-in-progress">🟡</span></div>
+            <div class="wireframe-quick-nav-item">S<span class="status-indicator status-completed">🟢</span></div>
+            <div class="wireframe-quick-nav-item">P<span class="status-indicator status-not-started">🔴</span></div>
+            <div class="wireframe-quick-nav-item">F<span class="status-indicator status-not-started">🔴</span></div>
+            <div class="wireframe-quick-nav-item">C<span class="status-indicator status-not-started">🔴</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sidebar Detail View Detail -->
+      <div class="wireframe-detail" id="sidebar-detail">
+        <div class="wireframe-nav">
+          <div class="wireframe-nav-back">Back to Overview</div>
+          <div class="wireframe-nav-pagination">
+            <button class="wireframe-nav-btn prev">Previous</button>
+            <div class="wireframe-nav-pagination-count">3/6</div>
+            <button class="wireframe-nav-btn next">Next</button>
+          </div>
+        </div>
+        
+        <div class="wireframe-card">
+          <div class="wireframe-title">
+            Sidebar Detail View
+            <span class="status-indicator status-completed">[🟢 Completed]</span>
+          </div>
+          <div class="wireframe-description">Detailed view of rankings and reviews that appears as a sidebar.</div>
+          <div class="wireframe-preview" style="position: relative; height: 350px; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.3);"></div>
+            <div style="position: absolute; top: 0; right: 0; bottom: 0; width: 70%; background-color: white; border-left: 1px solid #ddd; box-shadow: -2px 0 5px rgba(0,0,0,0.1);">
+              <div class="mock-header">
+                <div class="mock-title">Red ❤️</div>
+                <div style="cursor: pointer;">✕</div>
+              </div>
+              
+              <div class="mock-tabs">
+                <div class="mock-tab active">Rankings</div>
+                <div class="mock-tab">Review</div>
+              </div>
+              
+              <div style="padding: 15px; overflow-y: auto; max-height: 270px;">
+                <h4 style="margin-top: 0; margin-bottom: 10px;">Song Rankings</h4>
+                
+                <div class="mock-list">
+                  <div class="mock-list-item">
+                    <div style="display: flex; align-items: center;">
+                      <div class="mock-badge">1</div>
+                      <div>All Too Well (10 Minute Version)</div>
+                    </div>
+                  </div>
+                  <div class="mock-list-item">
+                    <div style="display: flex; align-items: center;">
+                      <div class="mock-badge">2</div>
+                      <div>State of Grace</div>
+                    </div>
+                  </div>
+                  <div class="mock-list-item">
+                    <div style="display: flex; align-items: center;">
+                      <div class="mock-badge">3</div>
+                      <div>Red</div>
+                    </div>
+                  </div>
+                  <div class="mock-list-item">
+                    <div style="display: flex; align-items: center;">
+                      <div class="mock-badge">4</div>
+                      <div>Holy Ground</div>
+                    </div>
+                  </div>
+                  <div class="mock-list-item">
+                    <div style="display: flex; align-items: center;">
+                      <div class="mock-badge">5</div>
+                      <div>Treacherous</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wireframe-note">Overlay panel that shows detailed information without navigating away from the current screen.</div>
+          
+          <div class="alt-view">
+Alternative Sidebar:
++----------------+
+|  Red ❤️    [X] |
+|                |
+| [Rank][Review] |
+|                |
+| #1 Song A      |
+| #2 Song B      |
+| #3 Song C      |
+|                |
+| ⭐⭐⭐⭐⭐      |
+| "Great album!" |
++----------------+
+          </div>
+          
+          <span class="details-toggle">Show Component Details</span>
+          <div class="component-details">
+            <strong>Data Sources:</strong>
+            <ul>
+              <li>data.js - ERA_SONGS, user reviews</li>
+              <li>localStorage - User rankings and reviews</li>
+            </ul>
+            <strong>Components:</strong>
+            <ul>
+              <li>SidebarPanel.vue - Main sidebar container</li>
+              <li>TabSelector - Toggles between rankings and review</li>
+              <li>RankingsList - Displays ranked items</li>
+              <li>ReviewEditor - Allows editing of reviews</li>
+            </ul>
+            <strong>State Requirements:</strong>
+            <ul>
+              <li>isVisible - Controls sidebar visibility</li>
+              <li>selectedTab - Current active tab (rankings/review)</li>
+              <li>currentItem - Item being viewed</li>
+            </ul>
+          </div>
+          
+          <div class="dev-notes">
+            <textarea id="note-sidebar" placeholder="Add your developer notes here..."></textarea>
+            <div class="dev-notes-actions">
+              <button onclick="saveDevNote('sidebar')">Save Note</button>
+            </div>
+          </div>
+          
+          <div class="wireframe-quick-nav">
+            <div class="wireframe-quick-nav-item">D<span class="status-indicator status-completed">🟢</span></div>
+            <div class="wireframe-quick-nav-item">E<span class="status-indicator status-in-progress">🟡</span></div>
+            <div class="wireframe-quick-nav-item active">S<span class="status-indicator status-completed">🟢</span></div>
+            <div class="wireframe-quick-nav-item">P<span class="status-indicator status-not-started">🔴</span></div>
+            <div class="wireframe-quick-nav-item">F<span class="status-indicator status-not-started">🔴</span></div>
+            <div class="wireframe-quick-nav-item">C<span class="status-indicator status-not-started">🔴</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Roadmap Section -->
+    <div id="roadmap" class="content-section">
+      <h2>Development Roadmap</h2>
+      
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #e74c3c;"></div>
+          <span>High Priority</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #f39c12;"></div>
+          <span>Medium Priority</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #3498db;"></div>
+          <span>Low Priority</span>
+        </div>
+      </div>
+      
+      <div class="roadmap">
+        <!-- Phase 1 -->
+        <div class="phase">
+          <div class="phase-header">
+            <div class="phase-title">Phase 1: Core Experience Refinement</div>
+            <div class="phase-timeline">Weeks 1-2</div>
+          </div>
+          
+          <div class="features">
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">User Accounts</div>
+                <div class="feature-priority" style="background-color: #e74c3c;">High</div>
+              </div>
+              <div class="feature-description">
+                Implement basic user authentication and profiles to save rankings beyond localStorage.
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">Data Persistence</div>
+                <div class="feature-priority" style="background-color: #e74c3c;">High</div>
+              </div>
+              <div class="feature-description">
+                Store user rankings in cloud database for access across devices.
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">Enhanced Reviews</div>
+                <div class="feature-priority" style="background-color: #f39c12;">Medium</div>
+              </div>
+              <div class="feature-description">
+                Add rich text formatting and image uploads to reviews.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Phase 2 -->
+        <div class="phase">
+          <div class="phase-header">
+            <div class="phase-title">Phase 2: Social Features</div>
+            <div class="phase-timeline">Weeks 3-5</div>
+          </div>
+          
+          <div class="features">
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">Friend Connections</div>
+                <div class="feature-priority" style="background-color: #e74c3c;">High</div>
+              </div>
+              <div class="feature-description">
+                Allow users to connect with friends and view their profiles.
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">Ranking Comparison</div>
+                <div class="feature-priority" style="background-color: #f39c12;">Medium</div>
+              </div>
+              <div class="feature-description">
+                Side-by-side comparison of rankings between friends.
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">Activity Feed</div>
+                <div class="feature-priority" style="background-color: #f39c12;">Medium</div>
+              </div>
+              <div class="feature-description">
+                Show recent activity from friends in a chronological feed.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Phase 3 -->
+        <div class="phase">
+          <div class="phase-header">
+            <div class="phase-title">Phase 3: Discovery Features</div>
+            <div class="phase-timeline">Weeks 6-8</div>
+          </div>
+          
+          <div class="features">
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">Recommendation Engine</div>
+                <div class="feature-priority" style="background-color: #f39c12;">Medium</div>
+              </div>
+              <div class="feature-description">
+                Suggest music based on user rankings and similar users.
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">Global Rankings</div>
+                <div class="feature-priority" style="background-color: #3498db;">Low</div>
+              </div>
+              <div class="feature-description">
+                Aggregate rankings across all users to show global trends.
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-title">Music Integration</div>
+                <div class="feature-priority" style="background-color: #3498db;">Low</div>
+              </div>
+              <div class="feature-description">
+                Connect with music streaming services for playback.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>Music Besties MVP Planning - Last Updated: May 3, 2025</p>
+    </div>
+  </div>
+  
+  <script>
+    // Simple tab switching functionality
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show the selected section
+      document.getElementById(sectionId).classList.add('active');
+      
+      // Update active tab
+      const tabs = document.querySelectorAll('.nav-tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // Find the clicked tab and make it active
+      event.target.classList.add('active');
+    }
+    
+    // Add event listeners for component details toggles
+    const detailsToggles = document.querySelectorAll('.details-toggle');
+    detailsToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const details = this.nextElementSibling;
+        details.classList.toggle('active');
+        this.textContent = details.classList.contains('active') ? 'Hide Component Details' : 'Show Component Details';
+      });
+    });
+    
+    // Load saved developer notes
+    function loadDevNotes() {
+      const notes = JSON.parse(localStorage.getItem('devNotes') || '{}');
+      Object.keys(notes).forEach(pageId => {
+        const textarea = document.getElementById(`note-${pageId}`);
+        if (textarea) {
+          textarea.value = notes[pageId];
+        }
+      });
+    }
+    
+    // Save developer notes to localStorage
+    function saveDevNote(pageId) {
+      const textarea = document.getElementById(`note-${pageId}`);
+      if (textarea) {
+        const notes = JSON.parse(localStorage.getItem('devNotes') || '{}');
+        notes[pageId] = textarea.value;
+        localStorage.setItem('devNotes', JSON.stringify(notes));
+        alert('Note saved!');
+      }
+    }
+    
+    // Tab navigation
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tab-link");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    
+    // Set the default tab and initialize functionality when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize tab navigation
+      const defaultTab = document.querySelector('.tab-link');
+      if (defaultTab) {
+        defaultTab.click();
+      }
+      
+      // Add event listeners for component details toggles
+      const detailsToggles = document.querySelectorAll('.details-toggle');
+      detailsToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const details = this.nextElementSibling;
+          details.classList.toggle('active');
+          this.textContent = details.classList.contains('active') ? 'Hide Component Details' : 'Show Component Details';
+        });
+      });
+      
+      // Load saved developer notes
+      loadDevNotes();
+      
+      // Initialize wireframe navigation
+      initWireframeNavigation();
+    });
+    
+    // Initialize wireframe navigation
+    function initWireframeNavigation() {
+      // Get all wireframe detail views
+      const wireframeDetails = document.querySelectorAll('.wireframe-detail');
+      const wireframeOverview = document.querySelector('.wireframe-overview');
+      
+      // Add click event to overview cards
+      const overviewCards = document.querySelectorAll('.wireframe-card.overview-card');
+      overviewCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          // Hide overview
+          wireframeOverview.style.display = 'none';
+          
+          // Show the corresponding detail view
+          wireframeDetails.forEach(detail => detail.classList.remove('active'));
+          wireframeDetails[index].classList.add('active');
+          
+          // Update pagination
+          updatePagination(index);
+          
+          // Update quick nav
+          updateQuickNav(index);
+        });
+      });
+      
+      // Add click event to back buttons
+      const backButtons = document.querySelectorAll('.wireframe-nav-back');
+      backButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Hide all detail views
+          wireframeDetails.forEach(detail => detail.classList.remove('active'));
+          
+          // Show overview
+          wireframeOverview.style.display = 'block';
+        });
+      });
+      
+      // Add click event to prev/next buttons
+      const prevButtons = document.querySelectorAll('.wireframe-nav-btn.prev');
+      const nextButtons = document.querySelectorAll('.wireframe-nav-btn.next');
+      
+      prevButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Find current active detail
+          const activeDetail = document.querySelector('.wireframe-detail.active');
+          const index = Array.from(wireframeDetails).indexOf(activeDetail);
+          
+          if (index > 0) {
+            // Hide current detail
+            activeDetail.classList.remove('active');
+            
+            // Show previous detail
+            wireframeDetails[index - 1].classList.add('active');
+            
+            // Update pagination
+            updatePagination(index - 1);
+            
+            // Update quick nav
+            updateQuickNav(index - 1);
+          }
+        });
+      });
+      
+      nextButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Find current active detail
+          const activeDetail = document.querySelector('.wireframe-detail.active');
+          const index = Array.from(wireframeDetails).indexOf(activeDetail);
+          
+          if (index < wireframeDetails.length - 1) {
+            // Hide current detail
+            activeDetail.classList.remove('active');
+            
+            // Show next detail
+            wireframeDetails[index + 1].classList.add('active');
+            
+            // Update pagination
+            updatePagination(index + 1);
+            
+            // Update quick nav
+            updateQuickNav(index + 1);
+          }
+        });
+      });
+      
+      // Add click event to quick nav items
+      const quickNavItems = document.querySelectorAll('.wireframe-quick-nav-item');
+      quickNavItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          // Hide all detail views
+          wireframeDetails.forEach(detail => detail.classList.remove('active'));
+          
+          // Show the corresponding detail view
+          wireframeDetails[index].classList.add('active');
+          
+          // Update pagination
+          updatePagination(index);
+          
+          // Update quick nav
+          updateQuickNav(index);
+        });
+      });
+    }
+    
+    // Update pagination count
+    function updatePagination(index) {
+      const paginationCounts = document.querySelectorAll('.wireframe-nav-pagination-count');
+      const totalPages = document.querySelectorAll('.wireframe-detail').length;
+      
+      paginationCounts.forEach(count => {
+        count.textContent = `${index + 1}/${totalPages}`;
+      });
+      
+      // Enable/disable prev/next buttons
+      const prevButtons = document.querySelectorAll('.wireframe-nav-btn.prev');
+      const nextButtons = document.querySelectorAll('.wireframe-nav-btn.next');
+      
+      prevButtons.forEach(button => {
+        button.disabled = index === 0;
+      });
+      
+      nextButtons.forEach(button => {
+        button.disabled = index === totalPages - 1;
+      });
+    }
+    
+    // Update quick nav
+    function updateQuickNav(activeIndex) {
+      const quickNavItems = document.querySelectorAll('.wireframe-quick-nav-item');
+      
+      quickNavItems.forEach((item, index) => {
+        if (index === activeIndex) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
