@@ -10,8 +10,11 @@ const PlanningApp = {
   
   // Initialize the application
   init: function() {
-    // Set default section or load last viewed
-    this.currentSection = localStorage.getItem('lastSection') || 'story-map';
+    // Clear localStorage to ensure fresh start each time
+    localStorage.removeItem('lastSection');
+    
+    // Always start with default section
+    this.currentSection = 'story-map';
     
     // Setup navigation
     this.setupNavigation();
@@ -19,7 +22,7 @@ const PlanningApp = {
     // Load initial content
     this.loadContent(this.currentSection);
     
-    console.log('Planning App initialized');
+    console.log('Planning App initialized with fresh state');
   },
   
   // Setup navigation event listeners
