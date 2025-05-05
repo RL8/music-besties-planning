@@ -52,6 +52,12 @@ const PlanningApp = {
     const contentEl = document.getElementById('content');
     contentEl.innerHTML = '<div class="loading">Loading...</div>';
     
+    // Only allow mocks and sketches sections
+    if (section !== 'mocks' && section !== 'sketches') {
+      console.log(`Section "${section}" is not available, defaulting to mocks`);
+      section = 'mocks';
+    }
+    
     // Fetch the view
     fetch(`views/${section}.html`)
       .then(response => {
