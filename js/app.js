@@ -13,8 +13,8 @@ const PlanningApp = {
     // Clear localStorage to ensure fresh start each time
     localStorage.removeItem('lastSection');
     
-    // Always start with default section
-    this.currentSection = 'story-map';
+    // Always start with mocks section in this branch
+    this.currentSection = 'mocks';
     
     // Setup navigation
     this.setupNavigation();
@@ -22,7 +22,7 @@ const PlanningApp = {
     // Load initial content
     this.loadContent(this.currentSection);
     
-    console.log('Planning App initialized with fresh state');
+    console.log('Planning App initialized with mocks focus');
   },
   
   // Setup navigation event listeners

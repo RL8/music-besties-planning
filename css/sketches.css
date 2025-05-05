@@ -1,0 +1,182 @@
+/**
+ * Styles for the Sketches section
+ */
+
+/* Tab Navigation */
+.sketches-tabs {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.sketches-tabs .tab-nav {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid #eee;
+  background-color: #f8f9fa;
+}
+
+.sketches-tabs .tab-button {
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.sketches-tabs .tab-button:hover {
+  background-color: #f0f0f0;
+}
+
+.sketches-tabs .tab-button.active {
+  color: #3498db;
+  font-weight: bold;
+  border-bottom: 2px solid #3498db;
+  background-color: white;
+}
+
+/* Tab Content */
+.sketches-tabs .tab-content {
+  padding: 20px;
+}
+
+.sketches-tabs .tab-pane {
+  display: none;
+}
+
+.sketches-tabs .tab-pane.active {
+  display: block;
+}
+
+.sketch-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.sketch-editor {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.sketch-editor h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 18px;
+}
+
+.ascii-editor {
+  font-family: 'Courier New', monospace;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  white-space: pre;
+  overflow-x: auto;
+  min-height: 200px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.ascii-editor:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.sketch-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+.sketch-actions button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.sketch-actions button:hover {
+  background-color: #3a7bc8;
+}
+
+.sketch-actions button.sketch-reset {
+  background-color: #e2e2e2;
+  color: #333;
+}
+
+.sketch-actions button.sketch-reset:hover {
+  background-color: #d1d1d1;
+}
+
+.sketch-notes {
+  margin-top: 30px;
+}
+
+.sketch-notes h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.note-input {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.note-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Status indicators */
+.status-indicator {
+  font-size: 14px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.status-completed {
+  color: #2e7d32;
+}
+
+.status-not-started {
+  color: #1976d2;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .sketch-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .sketch-editor {
+    flex: 1 1 calc(50% - 15px);
+    min-width: 300px;
+  }
+}

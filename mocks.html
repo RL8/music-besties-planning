@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Besties Mocks</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/common-styles.css">
+  <link rel="stylesheet" href="css/screenshot-docs.css">
+  <link rel="stylesheet" href="css/style-guide.css">
+  <link rel="stylesheet" href="css/user-flows.css">
+  <link rel="stylesheet" href="css/mocks.css">
+</head>
+<body>
+  <header>
+    <h1>Music Besties Mocks</h1>
+    <nav class="main-nav">
+      <a href="#" class="nav-link active" data-section="mocks">Mocks</a>
+    </nav>
+  </header>
+  
+  <main id="content">
+    <!-- Direct inclusion of mocks content -->
+    <div class="content-section">
+      <h2>UI Mockups</h2>
+      <p>Interactive wireframes for the Music Besties application with tabs for easy navigation.</p>
+      
+      <!-- Tabs Navigation -->
+      <div class="mocks-tabs">
+        <div class="tab-nav">
+          <button class="tab-button active" data-tab="overview">Overview</button>
+          <button class="tab-button" data-tab="dashboard">Dashboard</button>
+          <button class="tab-button" data-tab="edit-rankings">Edit Rankings</button>
+          <button class="tab-button" data-tab="sidebar">Sidebar Detail</button>
+          <button class="tab-button" data-tab="profile">User Profile</button>
+          <button class="tab-button" data-tab="friends">Friends List</button>
+          <button class="tab-button" data-tab="comparison">Comparison View</button>
+        </div>
+        
+        <!-- Tab Content will be loaded by mocks.js -->
+        <div class="tab-content" id="mocks-tab-content">
+          <!-- Content will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>Music Besties Planning App - Last updated: May 5, 2025</p>
+  </footer>
+  
+  <!-- Core Scripts -->
+  <script src="js/storage.js"></script>
+  <script>
+    // Simple script to load the mocks content
+    document.addEventListener('DOMContentLoaded', function() {
+      // Load the full mocks content
+      fetch('views/mocks.html')
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          
+          // Get the tab content from the loaded HTML
+          const tabContent = doc.querySelector('.tab-content');
+          
+          if (tabContent) {
+            // Replace the tab content in our page
+            document.getElementById('mocks-tab-content').innerHTML = tabContent.innerHTML;
+            
+            // Initialize tab functionality
+            initTabs();
+          }
+        })
+        .catch(error => {
+          console.error('Error loading mocks content:', error);
+        });
+    });
+    
+    // Initialize tab functionality
+    function initTabs() {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabPanes = document.querySelectorAll('.tab-pane');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Get the tab to show
+          const tabToShow = button.getAttribute('data-tab');
+          
+          // Update active button
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Update active tab
+          tabPanes.forEach(pane => {
+            if (pane.id === `${tabToShow}-tab`) {
+              pane.classList.add('active');
+            } else {
+              pane.classList.remove('active');
+            }
+          });
+        });
+      });
+      
+      // Initialize detail tabs if they exist
+      const detailTabButtons = document.querySelectorAll('.detail-tab-button');
+      
+      detailTabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Get the tab to show
+          const tabToShow = button.getAttribute('data-detail-tab');
+          const tabContainer = button.closest('.detail-tabs');
+          
+          // Update active button
+          const buttons = tabContainer.querySelectorAll('.detail-tab-button');
+          buttons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+          
+          // Update active tab
+          const panes = tabContainer.querySelectorAll('.detail-tab-pane');
+          panes.forEach(pane => {
+            if (pane.id === tabToShow) {
+              pane.classList.add('active');
+            } else {
+              pane.classList.remove('active');
+            }
+          });
+        });
+      });
+    }
+  </script>
+</body>
+</html>
