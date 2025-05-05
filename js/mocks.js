@@ -12,71 +12,14 @@
     
     // Setup tab navigation
     setupTabNavigation: function() {
-      const tabButtons = document.querySelectorAll('.tab-button');
-      console.log('Found tab buttons:', tabButtons.length);
-      
-      tabButtons.forEach(button => {
-        // Add click event listener (using function directly to preserve button as 'this')
-        button.addEventListener('click', function() {
-          // Get the tab to show
-          const tabId = this.getAttribute('data-tab');
-          console.log('Tab clicked:', tabId);
-          
-          // Remove active class from all buttons and panes
-          document.querySelectorAll('.tab-button').forEach(btn => {
-            btn.classList.remove('active');
-          });
-          
-          document.querySelectorAll('.tab-pane').forEach(pane => {
-            pane.classList.remove('active');
-          });
-          
-          // Add active class to clicked button and corresponding pane
-          this.classList.add('active');
-          const targetPane = document.getElementById(`${tabId}-tab`);
-          if (targetPane) {
-            targetPane.classList.add('active');
-          } else {
-            console.error(`Tab pane with id ${tabId}-tab not found`);
-          }
-        });
-      });
+      // Use the centralized tab navigation function
+      PlanningApp.setupTabs('.mocks-tabs');
     },
     
     // Setup detail tab navigation (for the right panel)
     setupDetailTabNavigation: function() {
-      const detailTabButtons = document.querySelectorAll('.detail-tab-button');
-      console.log('Found detail tab buttons:', detailTabButtons.length);
-      
-      detailTabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Get the detail tab to show
-          const detailTabId = this.getAttribute('data-detail-tab');
-          console.log('Detail tab clicked:', detailTabId);
-          
-          // Find the parent tab content container
-          const tabContentContainer = this.closest('.detail-tabs').querySelector('.detail-tab-content');
-          
-          // Remove active class from all buttons and panes within this container
-          const tabNav = this.closest('.detail-tab-nav');
-          tabNav.querySelectorAll('.detail-tab-button').forEach(btn => {
-            btn.classList.remove('active');
-          });
-          
-          tabContentContainer.querySelectorAll('.detail-tab-pane').forEach(pane => {
-            pane.classList.remove('active');
-          });
-          
-          // Add active class to clicked button and corresponding pane
-          this.classList.add('active');
-          const targetDetailPane = document.getElementById(`${detailTabId}-tab`);
-          if (targetDetailPane) {
-            targetDetailPane.classList.add('active');
-          } else {
-            console.error(`Detail tab pane with id ${detailTabId}-tab not found`);
-          }
-        });
-      });
+      // Use the centralized tab navigation function
+      PlanningApp.setupTabs('.detail-tabs');
     },
     
     // Setup comment system

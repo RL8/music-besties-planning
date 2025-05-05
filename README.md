@@ -38,3 +38,14 @@ The relationship between this planning app and the main Music Besties applicatio
 - **Not Started**: Feature is planned for future implementation
 
 This time-based approach ensures clear understanding of which app serves as the source of truth for any given feature.
+
+## Design System Documentation
+
+The app now includes documentation for its design system:
+
+- **Design Tokens**: [docs/design-system.md](docs/design-system.md) - Colors, spacing, typography guidelines
+- **Component Patterns**: 
+  - [docs/components/tabs.md](docs/components/tabs.md) - Tab navigation component
+  - [docs/components/status-indicators.md](docs/components/status-indicators.md) - Status indicator component
+
+This documentation serves as a guide for consistent development and maintenance of the app.

@@ -13,38 +13,8 @@
     
     // Setup tab navigation
     setupTabNavigation: function() {
-      const tabButtons = document.querySelectorAll('.sketches-tabs .tab-button');
-      console.log('Found tab buttons:', tabButtons.length);
-      
-      tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          // Get the tab to show
-          const tabId = this.getAttribute('data-tab');
-          console.log('Tab clicked:', tabId);
-          
-          // Remove active class from all buttons
-          document.querySelectorAll('.sketches-tabs .tab-button').forEach(btn => {
-            btn.classList.remove('active');
-          });
-          
-          // Remove active class from all panes
-          document.querySelectorAll('.sketches-tabs .tab-pane').forEach(pane => {
-            pane.classList.remove('active');
-          });
-          
-          // Add active class to clicked button
-          this.classList.add('active');
-          
-          // Add active class to corresponding pane
-          const targetPane = document.getElementById(tabId);
-          if (targetPane) {
-            targetPane.classList.add('active');
-            console.log('Activated tab pane:', tabId);
-          } else {
-            console.error(`Tab pane with id ${tabId} not found`);
-          }
-        });
-      });
+      // Use the centralized tab navigation function
+      PlanningApp.setupTabs('.sketches-tabs');
     },
     
     // Setup sketch save and reset actions

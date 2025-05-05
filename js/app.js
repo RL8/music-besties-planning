@@ -123,6 +123,44 @@ const PlanningApp = {
     
     // Add to document
     document.head.appendChild(link);
+  },
+  
+  // Centralized tab navigation setup
+  setupTabs: function(containerSelector) {
+    const container = document.querySelector(containerSelector);
+    if (!container) {
+      console.error(`Tab container ${containerSelector} not found`);
+      return;
+    }
+    
+    const tabButtons = container.querySelectorAll('.tab-button');
+    console.log(`Found ${tabButtons.length} tab buttons in ${containerSelector}`);
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Get the tab to show
+        const tabId = this.getAttribute('data-tab');
+        console.log(`Tab clicked: ${tabId} in ${containerSelector}`);
+        
+        // Remove active class from all buttons in this container
+        container.querySelectorAll('.tab-button').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        
+        // Remove active class from all panes related to this container
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        tabPanes.forEach(pane => {
+          if (pane.id === tabId || pane.id === `${tabId}-tab`) {
+            pane.classList.add('active');
+          } else {
+            pane.classList.remove('active');
+          }
+        });
+        
+        // Add active class to clicked button
+        this.classList.add('active');
+      });
+    });
   }
 };
 
