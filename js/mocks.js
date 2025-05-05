@@ -3,23 +3,41 @@
   const Mocks = {
     // Initialize the mocks functionality
     init: function() {
+      console.log('Initializing Mocks module');
       this.setupTabNavigation();
-      this.setupDetailTabNavigation();
-      this.setupCommentSystem();
-      this.loadComments();
-      console.log('Mocks module initialized');
+      
+      // Add a slight delay for detail tabs to ensure DOM is ready
+      setTimeout(() => {
+        this.setupDetailTabNavigation();
+        this.setupCommentSystem();
+        this.loadComments();
+        console.log('Mocks module initialized');
+      }, 50);
     },
     
     // Setup tab navigation
     setupTabNavigation: function() {
-      // Use the centralized tab navigation function
-      PlanningApp.setupTabs('.mocks-tabs');
+      // Use the centralized tab navigation function with explicit options
+      console.log('Setting up mocks tab navigation');
+      PlanningApp.setupTabs('.mocks-tabs', {
+        debug: true,
+        buttonSelector: '.tab-button, .tabs__button',
+        paneSelector: '.tab-pane, .tabs__pane',
+        activeClass: 'active'
+      });
     },
     
     // Setup detail tab navigation (for the right panel)
     setupDetailTabNavigation: function() {
-      // Use the centralized tab navigation function
-      PlanningApp.setupTabs('.detail-tabs');
+      // Use the centralized tab navigation function with explicit options
+      console.log('Setting up detail tab navigation');
+      PlanningApp.setupTabs('.detail-tabs', {
+        debug: true,
+        buttonSelector: '.tab-button, .tabs__button',
+        paneSelector: '.tab-pane, .tabs__pane',
+        activeClass: 'active',
+        tabAttribute: ['data-tab', 'data-detail-tab']
+      });
     },
     
     // Setup comment system
@@ -179,27 +197,18 @@
     saveComments: function(sectionId) {
       const commentsList = document.getElementById(`${sectionId.split('-')[0]}-comments`);
       const commentElements = commentsList.querySelectorAll('.comment');
-      const comments = [];
       
-      commentElements.forEach(element => {
-        const id = element.dataset.id;
-        const author = element.querySelector('.comment-author-name').textContent;
-        const text = element.querySelector('.comment-body').textContent;
-        const dateText = element.querySelector('.comment-date').textContent;
-        
-        comments.push({
-          id: id,
-          author: author,
-          text: text,
-          date: new Date(dateText).toISOString(),
-          replies: []
-        });
+      // Convert DOM elements to data objects
+      const comments = Array.from(commentElements).map(el => {
+        return {
+          id: el.dataset.commentId,
+          author: el.querySelector('.comment-author').textContent,
+          text: el.querySelector('.comment-text').textContent,
+          date: el.querySelector('.comment-date').dataset.timestamp
+        };
       });
       
-      // Sort by date (newest first)
-      comments.sort((a, b) => new Date(b.date) - new Date(a.date));
-      
-      // Save to localStorage
+      // Save to localStorage using the Storage utility
       Storage.saveComments(sectionId, comments);
     }
   };

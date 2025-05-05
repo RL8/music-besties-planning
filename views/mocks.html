@@ -3,22 +3,22 @@
   <p>Interactive wireframes for the Music Besties application with tabs for easy navigation.</p>
   
   <!-- Tabs Navigation -->
-  <div class="mocks-tabs">
-    <div class="tab-nav">
-      <button class="tab-button active" data-tab="overview">Overview</button>
-      <button class="tab-button" data-tab="dashboard">Dashboard</button>
-      <button class="tab-button" data-tab="edit-rankings">Edit Rankings</button>
-      <button class="tab-button" data-tab="sidebar">Sidebar Detail</button>
-      <button class="tab-button" data-tab="profile">User Profile</button>
-      <button class="tab-button" data-tab="friends">Friends List</button>
-      <button class="tab-button" data-tab="comparison">Comparison View</button>
+  <div class="mocks-tabs tabs">
+    <div class="tab-nav tabs__nav" role="tablist">
+      <button class="tab-button tabs__button active tabs__button--active" data-tab="overview" role="tab" aria-selected="true">Overview</button>
+      <button class="tab-button tabs__button" data-tab="dashboard" role="tab" aria-selected="false">Dashboard</button>
+      <button class="tab-button tabs__button" data-tab="edit-rankings" role="tab" aria-selected="false">Edit Rankings</button>
+      <button class="tab-button tabs__button" data-tab="sidebar" role="tab" aria-selected="false">Sidebar Detail</button>
+      <button class="tab-button tabs__button" data-tab="profile" role="tab" aria-selected="false">User Profile</button>
+      <button class="tab-button tabs__button" data-tab="friends" role="tab" aria-selected="false">Friends List</button>
+      <button class="tab-button tabs__button" data-tab="comparison" role="tab" aria-selected="false">Comparison View</button>
     </div>
     
     <!-- Tab Content -->
-    <div class="tab-content">
+    <div class="tab-content tabs__content">
       <!-- Overview Tab -->
-      <div class="tab-pane active" id="overview-tab">
-        <div class="mock-header">
+      <div class="tab-pane tabs__pane active tabs__pane--active" id="overview-tab" role="tabpanel" aria-hidden="false">
+        <div class="mock-header section-header">
           <h3>Screen Overview</h3>
           <p>A comprehensive view of all screens in the Music Besties application.</p>
         </div>
@@ -69,7 +69,7 @@
               </tr>
               <tr>
                 <td>User Profile</td>
-                <td><span class="status-indicator status-not-started">🔴 Not Started</span></td>
+                <td><span class="status-indicator status-not-started status status--not-started">[🔴 Not Started]</span></td>
                 <td>User settings and preferences</td>
                 <td>
                   <ul>
@@ -111,9 +111,9 @@
       </div>
       
       <!-- Dashboard Tab -->
-      <div class="tab-pane" id="dashboard-tab">
-        <div class="mock-header">
-          <h3>Dashboard <span class="status-indicator status-completed">[🟢 Completed]</span></h3>
+      <div class="tab-pane tabs__pane" id="dashboard-tab" role="tabpanel" aria-hidden="true">
+        <div class="mock-header section-header">
+          <h3>Dashboard <span class="status-indicator status-completed status status--completed">[🟢 Completed]</span></h3>
           <p>Main view showing all rankings across different categories.</p>
         </div>
         
@@ -309,9 +309,9 @@ UserRanking {
       </div>
       
       <!-- Edit Rankings Tab -->
-      <div class="tab-pane" id="edit-rankings-tab">
-        <div class="mock-header">
-          <h3>Edit Rankings <span class="status-indicator status-completed">[🟢 Completed]</span></h3>
+      <div class="tab-pane tabs__pane" id="edit-rankings-tab" role="tabpanel" aria-hidden="true">
+        <div class="mock-header section-header">
+          <h3>Edit Rankings <span class="status-indicator status-completed status status--completed">[🟢 Completed]</span></h3>
           <p>Interface for ranking items by tapping to select them in order of preference.</p>
         </div>
         
@@ -525,9 +525,9 @@ RankingHistory {
       </div>
       
       <!-- Sidebar Detail Tab -->
-      <div class="tab-pane" id="sidebar-tab">
-        <div class="mock-header">
-          <h3>Sidebar Detail <span class="status-indicator status-completed">[🟢 Completed]</span></h3>
+      <div class="tab-pane tabs__pane" id="sidebar-tab" role="tabpanel" aria-hidden="true">
+        <div class="mock-header section-header">
+          <h3>Sidebar Detail <span class="status-indicator status-completed status status--completed">[🟢 Completed]</span></h3>
           <p>Detailed view of a selected album with additional information.</p>
         </div>
         
@@ -745,9 +745,9 @@ Track {
       </div>
       
       <!-- User Profile Tab -->
-      <div class="tab-pane" id="profile-tab">
-        <div class="mock-header">
-          <h3>User Profile <span class="status-indicator status-not-started">[🔴 Not Started]</span></h3>
+      <div class="tab-pane tabs__pane" id="profile-tab" role="tabpanel" aria-hidden="true">
+        <div class="mock-header section-header">
+          <h3>User Profile <span class="status-indicator status-not-started status status--not-started">[🔴 Not Started]</span></h3>
           <p>User profile page with settings and preferences.</p>
         </div>
         
@@ -989,9 +989,9 @@ TopArtist {
       </div>
       
       <!-- Friends List Tab -->
-      <div class="tab-pane" id="friends-tab">
-        <div class="mock-header">
-          <h3>Friends List <span class="status-indicator status-not-started">[🔴 Not Started]</span></h3>
+      <div class="tab-pane tabs__pane" id="friends-tab" role="tabpanel" aria-hidden="true">
+        <div class="mock-header section-header">
+          <h3>Friends List <span class="status-indicator status-not-started status status--not-started">[🔴 Not Started]</span></h3>
           <p>View and manage friend connections.</p>
         </div>
         
@@ -1232,9 +1232,9 @@ FriendRequest {
       </div>
       
       <!-- Comparison View Tab -->
-      <div class="tab-pane" id="comparison-tab">
-        <div class="mock-header">
-          <h3>Comparison View <span class="status-indicator status-not-started">[🔴 Not Started]</span></h3>
+      <div class="tab-pane tabs__pane" id="comparison-tab" role="tabpanel" aria-hidden="true">
+        <div class="mock-header section-header">
+          <h3>Comparison View <span class="status-indicator status-not-started status status--not-started">[🔴 Not Started]</span></h3>
           <p>Compare rankings with friends to see similarities and differences.</p>
         </div>
         

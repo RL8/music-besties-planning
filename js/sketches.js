@@ -13,12 +13,20 @@
     
     // Setup tab navigation
     setupTabNavigation: function() {
-      // Use the centralized tab navigation function
-      PlanningApp.setupTabs('.sketches-tabs');
+      console.log('Setting up sketches tab navigation');
+      // Use the centralized tab navigation function with explicit options
+      PlanningApp.setupTabs('.sketches-tabs', {
+        debug: true,
+        buttonSelector: '.tab-button, .tabs__button',
+        paneSelector: '.tab-pane, .tabs__pane',
+        activeClass: 'active'
+      });
     },
     
     // Setup sketch save and reset actions
     setupSketchActions: function() {
+      console.log('Setting up sketch actions for Current tab');
+      
       // Save buttons
       const saveButtons = document.querySelectorAll('.sketch-save');
       saveButtons.forEach(button => {

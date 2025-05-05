@@ -4,17 +4,16 @@
   
   <!-- Tabs Navigation -->
   <div class="sketches-tabs">
-    <div class="tab-nav">
-      <button class="tab-button active" data-tab="current-tab">Current</button>
-      <button class="tab-button" data-tab="big-picture-tab">Big Picture/Planned</button>
+    <div class="tab-nav tabs__nav">
+      <button class="tab-button tabs__button active" data-tab="current-tab" role="tab" aria-selected="true" aria-controls="current-tab">Current</button>
     </div>
     
     <!-- Tab Content -->
-    <div class="tab-content">
+    <div class="tab-content tabs__content">
       <!-- Current Tab -->
-      <div class="tab-pane active" id="current-tab">
-        <div class="sketch-header">
-          <h3>Current Implementation <span class="status-indicator status-completed">[🟢 Active]</span></h3>
+      <div class="tab-pane tabs__pane active" id="current-tab" role="tabpanel" aria-hidden="false">
+        <div class="sketch-header section-header">
+          <h3>Current Implementation <span class="status-indicator status-completed status status--completed">[🟢 Active]</span></h3>
           <p>ASCII diagrams of the current system implementation.</p>
         </div>
         
@@ -75,91 +74,6 @@ App
         <div class="sketch-notes">
           <h4>Notes</h4>
           <textarea class="note-input" data-section="current-sketches" placeholder="Add your notes about the current implementation here..."></textarea>
-        </div>
-      </div>
-      
-      <!-- Big Picture Tab -->
-      <div class="tab-pane" id="big-picture-tab">
-        <div class="sketch-header">
-          <h3>Big Picture/Planned <span class="status-indicator status-not-started">[🔵 Planning]</span></h3>
-          <p>ASCII diagrams of planned features and system architecture.</p>
-        </div>
-        
-        <div class="sketch-container">
-          <div class="sketch-editor">
-            <h4>Extended User Flow</h4>
-            <pre class="ascii-editor" contenteditable="true" spellcheck="false">
-+------------------+     +-----------------+     +------------------+
-|                  |     |                 |     |                  |
-|  Login Screen    |---->|  Dashboard      |---->|  Edit Rankings   |
-|                  |     |                 |     |                  |
-+------------------+     +-----------------+     +------------------+
-       |                   |         |                 |
-       |                   |         |                 |
-       v                   v         v                 v
-+------------------+     +-----------------+     +------------------+
-|                  |     |                 |     |                  |
-|  Registration    |     |  Album Detail   |     |  Comparison View |
-|                  |     |                 |     |                  |
-+------------------+     +-----------------+     +------------------+
-                           |         |
-                           |         |
-                           v         v
-                         +-----------------+     +------------------+
-                         |                 |     |                  |
-                         |  User Profile   |---->|  Friends List    |
-                         |                 |     |                  |
-                         +-----------------+     +------------------+
-                                                   |
-                                                   |
-                                                   v
-                                                 +------------------+
-                                                 |                  |
-                                                 |  Friend Requests |
-                                                 |                  |
-                                                 +------------------+
-            </pre>
-            <div class="sketch-actions">
-              <button class="sketch-save" data-sketch="planned-flow">Save</button>
-              <button class="sketch-reset" data-sketch="planned-flow">Reset</button>
-            </div>
-          </div>
-          
-          <div class="sketch-editor">
-            <h4>System Architecture</h4>
-            <pre class="ascii-editor" contenteditable="true" spellcheck="false">
-+------------------+     +------------------+     +------------------+
-|                  |     |                  |     |                  |
-|  Frontend        |<--->|  API Gateway     |<--->|  Auth Service    |
-|  (Vue.js)        |     |  (Express)       |     |  (JWT)           |
-+------------------+     +------------------+     +------------------+
-                           |         |
-                           |         |
-                           v         v
-                         +------------------+     +------------------+
-                         |                  |     |                  |
-                         |  User Service    |<--->|  Ranking Service |
-                         |  (Node.js)       |     |  (Node.js)       |
-                         +------------------+     +------------------+
-                           |         |               |
-                           |         |               |
-                           v         v               v
-                         +------------------+     +------------------+
-                         |                  |     |                  |
-                         |  User Database   |     |  Ranking DB      |
-                         |  (MongoDB)       |     |  (MongoDB)       |
-                         +------------------+     +------------------+
-            </pre>
-            <div class="sketch-actions">
-              <button class="sketch-save" data-sketch="planned-architecture">Save</button>
-              <button class="sketch-reset" data-sketch="planned-architecture">Reset</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="sketch-notes">
-          <h4>Notes</h4>
-          <textarea class="note-input" data-section="planned-sketches" placeholder="Add your notes about planned features here..."></textarea>
         </div>
       </div>
     </div>

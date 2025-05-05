@@ -1,0 +1,43 @@
+/**
+ * Design Tokens for Music Besties Planning App
+ * 
+ * This file contains the design variables (tokens) used throughout the application.
+ * Using these tokens instead of hard-coded values ensures visual consistency.
+ */
+
+:root {
+  /* Primary Colors */
+  --color-primary: #3498db;      /* Blue used for active tabs, links */
+  --color-secondary: #f8f9fa;    /* Light gray for backgrounds */
+  --color-text: #333333;         /* Main text color */
+  --color-text-light: #666666;   /* Secondary text color */
+  
+  /* Status Colors */
+  --color-success: #28a745;      /* Green for completed status */
+  --color-danger: #dc3545;       /* Red for not started status */
+  --color-warning: #ffc107;      /* Yellow for in progress status */
+  
+  /* Neutral Colors */
+  --color-white: #ffffff;
+  --color-gray-100: #f8f9fa;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Typography */
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  
+  /* Effects */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 2px 4px rgba(0,0,0,0.1);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}

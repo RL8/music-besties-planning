@@ -4,27 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Music Besties Mocks</title>
+  <!-- Design tokens - load first so other styles can use the variables -->
+  <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/common-styles.css">
-  <link rel="stylesheet" href="css/screenshot-docs.css">
-  <link rel="stylesheet" href="css/style-guide.css">
-  <link rel="stylesheet" href="css/user-flows.css">
 </head>
 <body>
-  <header>
-    <h1>Music Besties Mocks</h1>
-    <nav class="main-nav">
-      <a href="#" class="nav-link active" data-section="mocks">Mocks</a>
-      <a href="#" class="nav-link" data-section="sketches">Sketches</a>
+  <header class="header">
+    <h1 class="header__title">Music Besties Mocks</h1>
+    <nav class="main-nav navigation">
+      <a href="#" class="nav-link navigation__link active" data-section="mocks">Mocks</a>
+      <a href="#" class="nav-link navigation__link" data-section="sketches">Sketches</a>
+      <a href="#" class="nav-link navigation__link" data-section="big-picture">Big Picture</a>
     </nav>
   </header>
   
-  <main id="content">
-    <div class="loading">Loading content...</div>
+  <main id="content" class="content">
+    <div class="loading content__loading">Loading content...</div>
   </main>
   
-  <footer>
-    <p>Music Besties Planning App - Last updated: May 5, 2025</p>
+  <footer class="footer">
+    <p class="footer__text">Music Besties Planning App - Last updated: May 5, 2025</p>
   </footer>
   
   <!-- Core Scripts -->

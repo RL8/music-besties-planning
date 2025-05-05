@@ -1,0 +1,97 @@
+<div class="content-section">
+  <h2>Big Picture Planning</h2>
+  <p>Long-term planning diagrams and system architecture for the Music Besties application.</p>
+  
+  <div class="sketch-container">
+    <div class="sketch-editor">
+      <h4>System Architecture</h4>
+      <pre class="ascii-editor" contenteditable="true" spellcheck="false">
++------------------+          +------------------+          +------------------+
+|                  |          |                  |          |                  |
+|  Client          |          |  API Server      |          |  Data Storage    |
+|  (React App)     |<-------->|  (Node.js)       |<-------->|  (MongoDB)       |
+|                  |          |                  |          |                  |
++------------------+          +------------------+          +------------------+
+        ^                             |
+        |                             |
+        |                             v
+        |                     +------------------+
+        |                     |                  |
+        +-------------------->|  Authentication  |
+                              |  (Auth0)         |
+                              |                  |
+                              +------------------+
+      </pre>
+      <div class="sketch-actions">
+        <button class="sketch-save" data-sketch="architecture">Save Changes</button>
+        <button class="sketch-reset" data-sketch="architecture">Reset</button>
+      </div>
+    </div>
+    
+    <div class="sketch-editor">
+      <h4>User Flow Diagram</h4>
+      <pre class="ascii-editor" contenteditable="true" spellcheck="false">
+        +---------------+     +-----------------+     +------------------+
+        |               |     |                 |     |                  |
+Start -->  Sign Up/Login  ---->  Onboarding Flow  ---->  Create First List  
+        |               |     |                 |     |                  |
+        +---------------+     +-----------------+     +------------------+
+                                                              |
+                                                              v
+        +---------------+     +-----------------+     +------------------+
+        |               |     |                 |     |                  |
+        |  User Profile  <-----  View Lists       <-----  Add Items        |
+        |               |     |                 |     |                  |
+        +---------------+     +-----------------+     +------------------+
+              |                      ^                       |
+              |                      |                       |
+              v                      |                       v
+        +---------------+     +-----------------+     +------------------+
+        |               |     |                 |     |                  |
+        |  Find Friends  ---->  Compare Rankings  ---->  Share Results     |
+        |               |     |                 |     |                  |
+        +---------------+     +-----------------+     +------------------+
+      </pre>
+      <div class="sketch-actions">
+        <button class="sketch-save" data-sketch="userflow">Save Changes</button>
+        <button class="sketch-reset" data-sketch="userflow">Reset</button>
+      </div>
+    </div>
+    
+    <div class="sketch-editor">
+      <h4>Data Model</h4>
+      <pre class="ascii-editor" contenteditable="true" spellcheck="false">
++------------------+          +------------------+          +------------------+
+|                  |          |                  |          |                  |
+|  User            |          |  List            |          |  Item            |
+|  - id            |<---------+  - id            |<---------+  - id            |
+|  - name          |    1:N   |  - title         |    1:N   |  - name          |
+|  - email         |          |  - description   |          |  - description   |
+|  - preferences   |          |  - userId        |          |  - listId        |
+|                  |          |  - items[]       |          |  - rank          |
++------------------+          +------------------+          +------------------+
+        |                             ^
+        |                             |
+        v                             |
++------------------+          +------------------+
+|                  |          |                  |
+|  Friendship      |          |  Comparison      |
+|  - id            |          |  - id            |
+|  - userId1       |          |  - listId1       |
+|  - userId2       |          |  - listId2       |
+|  - status        |          |  - matches       |
+|                  |          |  - differences   |
++------------------+          +------------------+
+      </pre>
+      <div class="sketch-actions">
+        <button class="sketch-save" data-sketch="datamodel">Save Changes</button>
+        <button class="sketch-reset" data-sketch="datamodel">Reset</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="sketch-notes">
+    <h4>Planning Notes</h4>
+    <textarea class="note-input" placeholder="Add your notes about the big picture planning here..."></textarea>
+  </div>
+</div>
