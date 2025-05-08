@@ -104,6 +104,93 @@
             </tbody>
           </table>
         </div>
+
+        <!-- ASCII Diagrams Section -->
+        <div class="mock-header section-header" style="margin-top: 30px;">
+          <h3>ASCII Diagrams</h3>
+          <p>Visual representation of the app structure and flow using text-based diagrams.</p>
+        </div>
+
+        <div class="ascii-diagrams">
+          <div class="ascii-diagram-section">
+            <h4>App Structure</h4>
+            <pre class="ascii-diagram">
++-----------------------------------------------------+
+|                   Music Besties                     |
++-----------------------------------------------------+
+|                                                     |
+|  +-------------------+    +---------------------+   |
+|  |                   |    |                     |   |
+|  |    Dashboard      |<-->|    Edit Rankings    |   |
+|  |     Screen        |    |       Screen        |   |
+|  |                   |    |                     |   |
+|  +-------------------+    +---------------------+   |
+|           |                         |               |
+|           v                         v               |
+|  +-------------------+    +---------------------+   |
+|  |                   |    |                     |   |
+|  |  Album Sidebar    |    |  Confirmation       |   |
+|  |     Panel         |    |     Modal           |   |
+|  |                   |    |                     |   |
+|  +-------------------+    +---------------------+   |
+|                                                     |
++-----------------------------------------------------+
+            </pre>
+          </div>
+
+          <div class="ascii-diagram-section">
+            <h4>Component Hierarchy</h4>
+            <pre class="ascii-diagram">
+App.vue
+  |
+  |--- DashboardCard.vue (Multiple instances in grid)
+  |
+  |--- EditRankingsTabs.vue
+  |      |
+  |      |--- DraggableItem.vue (Multiple instances)
+  |
+  |--- SidebarPanel.vue
+  |
+  |--- ModalDialog.vue
+            </pre>
+          </div>
+
+          <div class="ascii-diagram-section">
+            <h4>User Journey Map</h4>
+            <pre class="ascii-diagram">
+Start
+  |
+  v
++----------------+
+| Open Dashboard |
++----------------+
+  |
+  +------------+------------+
+  |            |            |
+  v            v            v
++--------+  +--------+  +--------+
+| View   |  | Edit   |  | View   |
+| Album  |  |Rankings|  | Review |
++--------+  +--------+  +--------+
+  |            |            |
+  v            v            v
++--------+  +--------+  +--------+
+| Rank   |  | Save   |  | Add    |
+| Songs  |  |Changes |  | Review |
++--------+  +--------+  +--------+
+  |            |            |
+  +------------+------------+
+  |
+  v
++----------------+
+|  Updated View  |
++----------------+
+  |
+  v
+End
+            </pre>
+          </div>
+        </div>
         <div class="mock-notes">
           <h4>Developer Notes</h4>
           <textarea class="note-input" data-section="overview-mock" placeholder="Add your notes about this overview here..."></textarea>
@@ -195,6 +282,7 @@
               <div class="detail-tab-nav">
                 <button class="detail-tab-button active" data-detail-tab="backend-dashboard">Backend Breakdown</button>
                 <button class="detail-tab-button" data-detail-tab="alt-ui-dashboard">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="ascii-dashboard">ASCII Diagram</button>
                 <button class="detail-tab-button" data-detail-tab="notes-dashboard">Developer Notes</button>
               </div>
               
@@ -282,6 +370,46 @@ UserRanking {
 +----------------------------------+
                     </pre>
                   </div>
+                </div>
+                
+                <!-- ASCII Diagram Tab -->
+                <div class="detail-tab-pane" id="ascii-dashboard-tab">
+                  <h4>ASCII Diagram</h4>
+                  <pre class="ascii-diagram">
++-----------------------------------------------------+
+| My Rankings                                   Edit  |
++-----------------------------------------------------+
+|                                                     |
+| +-------------+  +-------------+  +-------------+   |
+| | Taylor Swift|  | Fearless    |  | Speak Now   |   |
+| | 🤠          |  | 💛          |  | 💜          |   |
+| | 3/14 selected|  | 5/13 selected|  | 0/14 selected|   |
+| | ★★★☆☆       |  | ★★★★☆       |  | ☆☆☆☆☆       |   |
+| +-------------+  +-------------+  +-------------+   |
+|                                                     |
+| +-------------+  +-------------+  +-------------+   |
+| | Red         |  | 1989        |  | Reputation  |   |
+| | ❤️          |  | 🌊          |  | 🐍          |   |
+| | 2/19 selected|  | 7/13 selected|  | 4/15 selected|   |
+| | ★★★★★       |  | ★★★★☆       |  | ★★☆☆☆       |   |
+| +-------------+  +-------------+  +-------------+   |
+|                                                     |
+| +-------------+  +-------------+  +-------------+   |
+| | Lover       |  | folklore    |  | evermore    |   |
+| | 💖          |  | 🌲          |  | 🍂          |   |
+| | 3/18 selected|  | 8/17 selected|  | 2/17 selected|   |
+| | ★★★☆☆       |  | ★★★★★       |  | ★★★☆☆       |   |
+| +-------------+  +-------------+  +-------------+   |
+|                                                     |
+| +-------------+  +-------------+                    |
+| | Midnights   |  | TTPD        |                    |
+| | ✨          |  | 🤍          |                    |
+| | 6/13 selected|  | 0/31 selected|                    |
+| | ★★★★☆       |  | ☆☆☆☆☆       |                    |
+| +-------------+  +-------------+                    |
+|                                                     |
++-----------------------------------------------------+
+                  </pre>
                 </div>
                 
                 <!-- Developer Notes Tab -->
@@ -399,6 +527,7 @@ UserRanking {
               <div class="detail-tab-nav">
                 <button class="detail-tab-button active" data-detail-tab="backend-edit-rankings">Backend Breakdown</button>
                 <button class="detail-tab-button" data-detail-tab="alt-ui-edit-rankings">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="ascii-edit-rankings">ASCII Diagram</button>
                 <button class="detail-tab-button" data-detail-tab="notes-edit-rankings">Developer Notes</button>
               </div>
               
@@ -469,8 +598,6 @@ RankingHistory {
 | |less |  |     |  |     |        |
 | +-----+  +-----+  +-----+        |
 |                                  |
-| Unranked                         |
-+----------------------------------+
 | +-----+  +-----+                 |
 | |     |  |     |                 |
 | |Folk-|  | Mid-|                 |
@@ -498,6 +625,42 @@ RankingHistory {
 +----------------------------------+
                     </pre>
                   </div>
+                </div>
+                
+                <!-- ASCII Diagram Tab -->
+                <div class="detail-tab-pane" id="ascii-edit-rankings-tab">
+                  <h4>ASCII Diagram</h4>
+                  <pre class="ascii-diagram">
++-----------------------------------------------------+
+| Cancel    Edit Rankings                       Save  |
++-----------------------------------------------------+
+| +-------+ +--------+ +--------+ +--------+ +-----+  |
+| | Eras  | |Taylor S.| |Fearless| |Speak N.| |....|  |
+| +-------+ +--------+ +--------+ +--------+ +-----+  |
++-----------------------------------------------------+
+|                                                     |
+|  Tap to rank. Top items are your favorites.         |
+|                                                     |
+|  +---------+  +---------+  +---------+             |
+|  | 1 Folk🌲 |  | 2 Red❤️ |  | 3 1989🌊 |             |
+|  +---------+  +---------+  +---------+             |
+|                                                     |
+|  +---------+  +---------+  +---------+             |
+|  | 4 Midn✨ |  | 5 Lovr💖 |  | 6 TTPD🤍 |             |
+|  +---------+  +---------+  +---------+             |
+|                                                     |
+|  Unranked:                                          |
+|                                                     |
+|  +---------+  +---------+  +---------+             |
+|  | Taylor🤠 |  | Speak💜 |  | Fearl💛 |             |
+|  +---------+  +---------+  +---------+             |
+|                                                     |
+|  +---------+  +---------+                          |
+|  | Reput🐍 |  | Everm🍂 |                          |
+|  +---------+  +---------+                          |
+|                                                     |
++-----------------------------------------------------+
+                  </pre>
                 </div>
                 
                 <!-- Developer Notes Tab -->
@@ -605,6 +768,7 @@ RankingHistory {
               <div class="detail-tab-nav">
                 <button class="detail-tab-button active" data-detail-tab="backend-sidebar">Backend Breakdown</button>
                 <button class="detail-tab-button" data-detail-tab="alt-ui-sidebar">Alternative UI</button>
+                <button class="detail-tab-button" data-detail-tab="ascii-sidebar">ASCII Diagram</button>
                 <button class="detail-tab-button" data-detail-tab="notes-sidebar">Developer Notes</button>
               </div>
               
@@ -718,6 +882,32 @@ Track {
 +----------------------------------+
                     </pre>
                   </div>
+                </div>
+                
+                <!-- ASCII Diagram Tab -->
+                <div class="detail-tab-pane" id="ascii-sidebar-tab">
+                  <h4>ASCII Diagram</h4>
+                  <pre class="ascii-diagram">
++-----------------------------------------------------+
+|  ✕             Album Details     |
++-----------------------------------------------------+
+|                                  |
+|            +--------+            |
+|            |  1989  |            |
+|            |   🌃   |            |
+|            +--------+            |
+|                                  |
+|  1989                            |
+|  Taylor Swift                    |
+|  Released: 2014                  |
+|  Genre: Pop                      |
+|  Length: 48:41                   |
+|  Tracks: 13                      |
+|                                  |
+|  #3 in Your Rankings             |
+|                                  |
++-----------------------------------------------------+
+                  </pre>
                 </div>
                 
                 <!-- Developer Notes Tab -->

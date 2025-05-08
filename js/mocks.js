@@ -29,14 +29,20 @@
     
     // Setup detail tab navigation (for the right panel)
     setupDetailTabNavigation: function() {
-      // Use the centralized tab navigation function with explicit options
-      console.log('Setting up detail tab navigation');
-      PlanningApp.setupTabs('.detail-tabs', {
-        debug: true,
-        buttonSelector: '.tab-button, .tabs__button',
-        paneSelector: '.tab-pane, .tabs__pane',
-        activeClass: 'active',
-        tabAttribute: ['data-tab', 'data-detail-tab']
+      // Get all detail tab containers
+      const detailTabContainers = document.querySelectorAll('.detail-tabs');
+      
+      console.log(`Setting up ${detailTabContainers.length} detail tab navigation instances`);
+      
+      // Initialize each container separately
+      detailTabContainers.forEach((container, index) => {
+        PlanningApp.setupTabs(`.detail-tabs:nth-of-type(${index + 1})`, {
+          debug: true,
+          buttonSelector: '.detail-tab-button',
+          paneSelector: '.detail-tab-pane',
+          activeClass: 'active',
+          tabAttribute: ['data-tab', 'data-detail-tab']
+        });
       });
     },
     

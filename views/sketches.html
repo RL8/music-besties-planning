@@ -6,6 +6,7 @@
   <div class="sketches-tabs">
     <div class="tab-nav tabs__nav">
       <button class="tab-button tabs__button active" data-tab="current-tab" role="tab" aria-selected="true" aria-controls="current-tab">Current</button>
+      <button class="tab-button tabs__button" data-tab="ascii-diagrams-tab" role="tab" aria-selected="false" aria-controls="ascii-diagrams-tab">Component Diagrams</button>
     </div>
     
     <!-- Tab Content -->
@@ -75,6 +76,55 @@ App
           <h4>Notes</h4>
           <textarea class="note-input" data-section="current-sketches" placeholder="Add your notes about the current implementation here..."></textarea>
         </div>
+      </div>
+      
+      <!-- ASCII Diagrams Tab -->
+      <div class="tab-pane tabs__pane" id="ascii-diagrams-tab" role="tabpanel" aria-hidden="true">
+        <div class="sketch-header section-header">
+          <h3>Component Diagrams <span class="status-indicator status-completed status status--completed">[🟢 Updated]</span></h3>
+          <p>Detailed ASCII diagrams of the app components and screens, including the new TTPD album.</p>
+        </div>
+        
+        <div class="sketch-actions sketch-actions--top">
+          <a href="ascii-diagrams.html" class="button button--primary" target="_blank">View Full ASCII Diagrams</a>
+        </div>
+        
+        <div class="sketch-container">
+          <div class="sketch-editor">
+            <h4>App Structure</h4>
+            <pre class="ascii-editor" contenteditable="true" spellcheck="false">
++-----------------------------------------------------+
+|                   Music Besties                     |
++-----------------------------------------------------+
+|                                                     |
+|  +-------------------+    +---------------------+   |
+|  |                   |    |                     |   |
+|  |    Dashboard      |<-->|    Edit Rankings    |   |
+|  |     Screen        |    |       Screen        |   |
+|  |                   |    |                     |   |
+|  +-------------------+    +---------------------+   |
+|           |                         |               |
+|           v                         v               |
+|  +-------------------+    +---------------------+   |
+|  |                   |    |                     |   |
+|  |  Album Sidebar    |    |  Confirmation       |   |
+|  |     Panel         |    |     Modal           |   |
+|  |                   |    |                     |   |
+|  +-------------------+    +---------------------+   |
+|                                                     |
++-----------------------------------------------------+
+            </pre>
+            <div class="sketch-actions">
+              <button class="sketch-save" data-sketch="app-structure">Save</button>
+              <button class="sketch-reset" data-sketch="app-structure">Reset</button>
+            </div>
+          </div>
+        </div>
+        
+        <p class="sketch-note">
+          Note: The full ASCII diagrams page includes detailed representations of all screens, including the newly added TTPD album. 
+          These diagrams accurately reflect the current tap-to-rank implementation and component structure.
+        </p>
       </div>
     </div>
   </div>
